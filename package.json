@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "@vueuse/core": "^13.5.0",
     "@vueuse/head": "^2.0.0",
     "@vueuse/motion": "^3.0.3",
