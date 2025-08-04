@@ -36,32 +36,33 @@
               richiedere un preventivo personalizzato.
             </p>
             <a
-              href="mailto:fracabu@gmail.com?subject=Richiesta Consulenza CodeCraft Studio&body=Ciao,%0D%0A%0D%0ASono interessato ai vostri servizi di automazione AI.%0D%0A%0D%0ADettagli azienda:%0D%0A- Settore: %0D%0A- Dimensione: %0D%0A- Processi da automatizzare: %0D%0A%0D%0AGrazie!"
+              href="mailto:info@codecraft.it?subject=Richiesta Consulenza CodeCraft Studio&body=Ciao,%0D%0A%0D%0ASono interessato ai vostri servizi di automazione AI.%0D%0A%0D%0ADettagli azienda:%0D%0A- Settore: %0D%0A- Dimensione: %0D%0A- Processi da automatizzare: %0D%0A%0D%0AGrazie!"
               class="w-full inline-flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg font-semibold text-white hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
-              <span>fracabu@gmail.com</span>
+              <span>info@codecraft.it</span>
             </a>
           </div>
 
-          <!-- WhatsApp Contact -->
-          <div class="p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl opacity-75">
-            <div class="text-5xl mb-6">💬</div>
-            <h3 class="text-2xl font-bold text-white mb-4">WhatsApp Business</h3>
+          <!-- Phone Contact -->
+          <div class="p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-orange-400/50 transition-all duration-300">
+            <div class="text-5xl mb-6">📞</div>
+            <h3 class="text-2xl font-bold text-white mb-4">Chiamata Diretta</h3>
             <p class="text-gray-300 mb-6 leading-relaxed">
               Per una comunicazione diretta e immediata. Perfetto per domande veloci o per
               fissare appuntamenti per la consulenza gratuita.
             </p>
-            <button class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg font-semibold text-white cursor-not-allowed">
-              <span class="flex items-center justify-center space-x-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span>WhatsApp (coming soon)</span>
-              </span>
-            </button>
+            <a
+              href="tel:+393204933807"
+              class="w-full inline-flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg font-semibold text-white hover:from-green-600 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+              </svg>
+              <span>+39 320 493 3807</span>
+            </a>
           </div>
         </div>
 
@@ -106,8 +107,8 @@
                 </svg>
                 <div>
                   <div class="text-white font-medium">Email</div>
-                  <a href="mailto:fracabu@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-colors">
-                    fracabu@gmail.com
+                  <a href="mailto:info@codecraft.it" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                    info@codecraft.it
                   </a>
                 </div>
               </div>
@@ -117,8 +118,20 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
                 <div>
-                  <div class="text-white font-medium">Località</div>
-                  <div class="text-gray-300">Milano, Lombardia, IT</div>
+                  <div class="text-white font-medium">Indirizzo</div>
+                  <div class="text-gray-300">Via Innocenzo XI, 44</div>
+                  <div class="text-gray-300">00165 Roma, IT</div>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <svg class="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                </svg>
+                <div>
+                  <div class="text-white font-medium">Telefono</div>
+                  <a href="tel:+393204933807" class="text-cyan-400 hover:text-cyan-300 transition-colors">
+                    +39 320 493 3807
+                  </a>
                 </div>
               </div>
               <div class="flex items-center space-x-3">
@@ -146,7 +159,7 @@
 
           <!-- Final CTA -->
           <a
-            href="mailto:fracabu@gmail.com?subject=Consulenza Gratuita CodeCraft&body=Ciao,%0D%0A%0D%0AVorrei richiedere una consulenza gratuita di 30 minuti.%0D%0A%0D%0AInfo azienda:%0D%0A- Nome azienda: %0D%0A- Settore: %0D%0A- Dimensione team: %0D%0A- Processi da ottimizzare: %0D%0A- Obiettivi principali: %0D%0A%0D%0APreferenza orario chiamata:%0D%0A- Giorni: %0D%0A- Orari: %0D%0A%0D%0AGrazie!"
+            href="mailto:info@codecraft.it?subject=Consulenza Gratuita CodeCraft Studio&body=Ciao,%0D%0A%0D%0AVorrei richiedere una consulenza gratuita di 30 minuti.%0D%0A%0D%0AInfo azienda:%0D%0A- Nome azienda: %0D%0A- Settore: %0D%0A- Dimensione team: %0D%0A- Processi da ottimizzare: %0D%0A- Obiettivi principali: %0D%0A%0D%0APreferenza orario chiamata:%0D%0A- Giorni: %0D%0A- Orari: %0D%0A%0D%0AGrazie!"
             class="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg font-semibold text-white hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

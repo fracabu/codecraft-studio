@@ -54,17 +54,6 @@
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
         </a>
         <a
-          href="#casi-successo"
-          @click="scrollTo('casi-successo')"
-          :class="[
-            'text-gray-300 hover:text-cyan-400 transition-all duration-300 cursor-pointer relative group',
-            activeSection === 'casi-successo' ? 'text-cyan-400' : ''
-          ]"
-        >
-          Casi di Successo
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
-        </a>
-        <a
           href="#contatti"
           @click="scrollTo('contatti')"
           :class="[
@@ -163,19 +152,6 @@
             <span>Tool</span>
           </a>
           <a
-            href="#casi-successo"
-            @click="scrollToAndCloseMobile('casi-successo')"
-            :class="[
-              'text-gray-300 hover:text-cyan-400 transition-colors py-3 px-4 rounded-lg hover:bg-white/10 flex items-center space-x-3',
-              activeSection === 'casi-successo' ? 'text-cyan-400 bg-cyan-400/10' : ''
-            ]"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
-            <span>Casi di Successo</span>
-          </a>
-          <a
             href="#contatti"
             @click="scrollToAndCloseMobile('contatti')"
             :class="[
@@ -232,7 +208,7 @@ const scrollToAndCloseMobile = (elementId) => {
 
 // Active section detection
 const updateActiveSection = () => {
-  const sections = ['home', 'servizi', 'tool', 'casi-successo', 'contatti']
+  const sections = ['home', 'servizi', 'tool', 'contatti']
 
   for (const sectionId of sections) {
     const element = document.getElementById(sectionId)

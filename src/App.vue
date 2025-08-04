@@ -86,17 +86,6 @@
                   :class="{ 'w-full': $route.name === 'Tool' }"></span>
           </router-link>
 
-          <router-link
-            to="/casi-successo"
-            :class="[
-              'text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group',
-              $route.name === 'CasiSuccesso' ? 'text-cyan-400' : ''
-            ]"
-          >
-            Casi di Successo
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"
-                  :class="{ 'w-full': $route.name === 'CasiSuccesso' }"></span>
-          </router-link>
 
           <router-link
             to="/contatti"
@@ -199,19 +188,6 @@
               <span>Tool</span>
             </router-link>
 
-            <router-link
-              to="/casi-successo"
-              @click="closeMobileMenu"
-              :class="[
-                'flex items-center space-x-3 py-3 px-4 rounded-lg hover:bg-white/10 transition-colors',
-                $route.name === 'CasiSuccesso' ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400'
-              ]"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-              </svg>
-              <span>Casi di Successo</span>
-            </router-link>
 
             <router-link
               to="/contatti"
@@ -247,10 +223,8 @@
 
     <!-- Main Content -->
     <main class="relative z-10">
-      <!-- Router View with page transitions -->
-      <Transition name="page" mode="out-in">
-        <router-view :key="$route.fullPath" />
-      </Transition>
+      <!-- Router View without transitions for debugging -->
+      <router-view :key="$route.fullPath" />
     </main>
 
     <!-- Footer -->
@@ -274,9 +248,14 @@
               Automatizziamo i processi business con intelligenza artificiale per ridurre costi e aumentare produttività.
             </p>
             <div class="flex space-x-4">
-              <a href="mailto:fracabu@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors">
+              <a href="mailto:info@codecraft.it" class="text-gray-400 hover:text-cyan-400 transition-colors">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+              </a>
+              <a href="tel:+393204933807" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
                 </svg>
               </a>
             </div>
@@ -298,11 +277,17 @@
             <h3 class="text-white font-semibold mb-4">Contatti</h3>
             <ul class="space-y-2 text-gray-400">
               <li>
-                <a href="mailto:fracabu@gmail.com" class="hover:text-cyan-400 transition-colors">
-                  fracabu@gmail.com
+                <a href="mailto:info@codecraft.it" class="hover:text-cyan-400 transition-colors">
+                  info@codecraft.it
                 </a>
               </li>
-              <li>Milano, Lombardia, IT</li>
+              <li>
+                <a href="tel:+393204933807" class="hover:text-cyan-400 transition-colors">
+                  +39 320 493 3807
+                </a>
+              </li>
+              <li>Via Innocenzo XI, 44</li>
+              <li>00165 Roma, IT</li>
               <li>
                 <a href="https://www.codecraft.it" class="hover:text-cyan-400 transition-colors">
                   www.codecraft.it
@@ -315,7 +300,7 @@
         <!-- Copyright -->
         <div class="pt-8 border-t border-white/10 text-center">
           <p class="text-gray-400 text-sm">
-            © 2024 CodeCraft Studio - Automazioni AI per il futuro del business.
+            © 2024 CodeCraft Studio - Via Innocenzo XI, 44 - 00165 Roma - P.IVA: IT123456789
           </p>
         </div>
       </div>
@@ -375,7 +360,8 @@ body {
   color: #00f5ff !important;
 }
 
-/* Page transitions */
+/* Page transitions - temporarily disabled for debugging */
+/*
 .page-enter-active,
 .page-leave-active {
   transition: all 0.3s ease;
@@ -390,6 +376,7 @@ body {
   opacity: 0;
   transform: translateY(-20px);
 }
+*/
 
 /* Mobile menu transitions */
 .slide-down-enter-active,

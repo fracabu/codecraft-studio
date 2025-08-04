@@ -4,7 +4,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import ToolView from '../views/ToolView.vue'
-import CasiSuccessoView from '../views/CasiSuccessoView.vue'
 import ContattiView from '../views/ContattiView.vue'
 
 // Routes with SEO metadata
@@ -49,20 +48,6 @@ const routes = [
       ogDescription: '15+ tool personalizzati per automatizzare calcoli e processi. Dalla creazione plugin NPM alle dashboard analytics.',
       ogImage: '/og-images/tool.jpg',
       canonicalUrl: 'https://www.codecraft.it/tool'
-    }
-  },
-  {
-    path: '/casi-successo',
-    name: 'CasiSuccesso',
-    component: CasiSuccessoView,
-    meta: {
-      title: 'Casi di Successo | ROI 4.5x | Clienti CodeCraft Studio',
-      description: 'Scopri i risultati reali dei nostri clienti: -60% costi support, +35% soddisfazione clienti, €2.8K risparmio mensile. ROI medio 4.5x in 90 giorni.',
-      keywords: 'casi successo AI, ROI automazioni, risultati clienti, case study business, testimonial AI',
-      ogTitle: 'Casi di Successo - ROI 4.5x con le Automazioni AI',
-      ogDescription: 'Risultati reali: E-commerce con -60% costi support, Agenzia con +25% ROI campagne. Scopri come i nostri clienti risparmiano migliaia di euro.',
-      ogImage: '/og-images/casi-successo.jpg',
-      canonicalUrl: 'https://www.codecraft.it/casi-successo'
     }
   },
   {
