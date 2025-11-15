@@ -1565,6 +1565,100 @@ export const projects = [
     status: 'Completed',
     link: null,
     testimonial: null
+  },
+  {
+    id: 26,
+    slug: 'airaverewind',
+    title: 'AI Rave Rewind',
+    category: 'AI/ML',
+    tagline: 'Canale YouTube di Musica Techno Generata con AI',
+    description: 'Canale YouTube che riporta alla golden era della rave culture anni \'90 attraverso musica techno generata interamente con intelligenza artificiale.',
+    longDescription: `
+      <p class="mb-4">AI Rave Rewind è un progetto innovativo che unisce intelligenza artificiale e cultura rave per creare un'esperienza musicale unica. Il canale YouTube produce quotidianamente tracce techno autentiche che catturano l'essenza underground degli anni '90 con qualità produttiva moderna.</p>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Il Concept</h3>
+      <p class="mb-4">Riportare in vita la golden era della rave culture attraverso la potenza dell'AI generativa:</p>
+      <ul class="list-disc list-inside mb-4 text-gray-400">
+        <li>Suoni autentici underground reimaginati dall'intelligenza artificiale</li>
+        <li>Fusion tra nostalgia anni '90 e tecnologia moderna</li>
+        <li>Produzione quotidiana multi-genere (Ambient, Trance, Hardcore, Industrial, Acid)</li>
+        <li>Esperienza visiva con copertine AI-generated (Leonardo AI)</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Processo Creativo</h3>
+      <p class="mb-4">Workflow AI-powered completo per massima qualità:</p>
+      <ul class="list-disc list-inside mb-4 text-gray-400">
+        <li><strong>Generazione Base:</strong> Riffusion AI & Udio AI per tracce iniziali</li>
+        <li><strong>Post-Production:</strong> Remix e mastering meticoloso in Audacity</li>
+        <li><strong>Visual Design:</strong> Copertine generate con Leonardo AI</li>
+        <li><strong>Publishing:</strong> Automazione upload con Canva per thumbnail</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Palinsesto Upload</h3>
+      <p class="mb-4">Scheduling quotidiano multi-genre:</p>
+      <ul class="list-disc list-inside mb-4 text-gray-400">
+        <li><strong>08:00 - Ambient:</strong> Neural afterglow per iniziare la giornata</li>
+        <li><strong>12:00 - Trance:</strong> Hypnotic dimensions per il pomeriggio</li>
+        <li><strong>18:00 - Hardcore/Industrial/Acid:</strong> Raw energy serale</li>
+        <li><strong>Weekend Specials:</strong> 20:00/22:00 venerdì e sabato - Drop esclusivi</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Playlists Tematiche</h3>
+      <ul class="list-disc list-inside mb-4 text-gray-400">
+        <li><strong>Industrial Arsenal:</strong> Dark minimal techno con BPM 130+</li>
+        <li><strong>Ambient Neural Afterglow:</strong> Soundscapes atmosferici AI-driven</li>
+        <li><strong>Trance Hypnotic Dimension:</strong> Progressive trance anni '90 reimaginato</li>
+        <li><strong>Acid Collection:</strong> TB-303 sequences generate dall'AI</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Caso Studio: "Sacred Algorithm"</h3>
+      <p class="mb-4">Dark minimal techno a 130 BPM che fonde canti gregoriani con sequenze TB-303:</p>
+      <ul class="list-disc list-inside mb-4 text-gray-400">
+        <li>Kick rituali con raw intensity</li>
+        <li>Sequenze acid TB-303 da algoritmi sacri</li>
+        <li>Hi-hat taglienti attraverso static digitale</li>
+        <li>Canti gregoriani processati da neural networks</li>
+        <li>Sacred textures da templi di silicio</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Multi-Platform Strategy</h3>
+      <p class="mb-4">Presenza social completa per massima reach:</p>
+      <ul class="list-disc list-inside mb-4 text-gray-400">
+        <li>YouTube come hub principale con upload quotidiani</li>
+        <li>Instagram (@airavewind) per visual snippets</li>
+        <li>Twitter (@aiRaveRewind) per annunci e community</li>
+        <li>SoundCloud per streaming alternative</li>
+        <li>Linktree aggregator per all platforms</li>
+      </ul>
+
+      <h3 class="text-xl font-bold text-white mt-6 mb-3">Risultati</h3>
+      <p class="mb-4">Crescita organica attraverso contenuti quotidiani AI-generated di alta qualità, con community appassionata di rave culture e AI music enthusiasts.</p>
+    `,
+    technologies: ['Riffusion AI', 'Udio AI', 'Leonardo AI', 'Audacity', 'Canva', 'YouTube API'],
+    features: [
+      'Upload quotidiani programmati (3 fasce orarie)',
+      'Weekend specials (venerdì e sabato)',
+      'Processo creativo AI + post-production manuale',
+      'Multiple playlists tematiche',
+      'Copertine AI-generated (Leonardo AI)',
+      'Multi-genre: Ambient, Trance, Hardcore, Industrial, Acid',
+      'Autenticità suoni underground anni \'90',
+      'Qualità produttiva moderna',
+      'Presenza multi-platform (YouTube, Instagram, Twitter, SoundCloud)',
+      'Linktree aggregator per streaming',
+      'Community engagement attiva',
+      'Thumbnail custom con Canva'
+    ],
+    metrics: [
+      { label: 'Upload Schedule', value: 'Daily', color: 'text-green-400' },
+      { label: 'AI Tools Used', value: '5+', color: 'text-primary-400' },
+      { label: 'Music Genres', value: '5 types', color: 'text-primary-400' },
+      { label: 'Platforms', value: '5+', color: 'text-green-400' }
+    ],
+    images: [],
+    status: 'Live',
+    link: 'https://www.youtube.com/@AIRaveRewind',
+    testimonial: null
   }
 ]
 
