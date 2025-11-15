@@ -46,25 +46,39 @@ Ensure you have Node.js and npm (or Yarn/pnpm) installed on your system.
 
 ### Running the Project
 
-1.  Run the development server:
+1.  **Development (Frontend Only):**
     ```bash
     npm run dev
     ```
-    This will start the development server, usually on `http://localhost:3000`, and automatically open it in your browser.
+    This will start the Vite development server on `http://localhost:3000`.
+    Note: Email sending won't work without the backend server.
 
-2.  Build for production:
+2.  **Full Development (Frontend + Backend):**
+    ```bash
+    npm run dev:full
+    ```
+    This runs both the Vue frontend (port 3000) and Express backend (port 3001) concurrently.
+    Use this to test the contact form email functionality locally.
+
+3.  **Build for production:**
     ```bash
     npm run build
     ```
     This command compiles and minifies the application for production deployment into the `dist/` directory.
 
-3.  Preview the production build:
+4.  **Preview the production build:**
     ```bash
     npm run preview
     ```
     This command serves the built application locally for testing the production bundle.
 
 ### Other Commands
+
+*   **Run Backend Server Only:**
+    ```bash
+    npm run server
+    ```
+    Starts the Express server on port 3001 for email handling.
 
 *   **Run Unit Tests:**
     ```bash
@@ -78,3 +92,32 @@ Ensure you have Node.js and npm (or Yarn/pnpm) installed on your system.
     ```bash
     npm run format
     ```
+
+## Email Configuration
+
+The contact form sends emails via SMTP. To set up email functionality:
+
+1.  **Copy the environment variables template:**
+    ```bash
+    cp .env.example .env
+    ```
+
+2.  **Configure your SMTP settings in `.env`:**
+    ```env
+    SMTP_HOST=smtp.aruba.it
+    SMTP_PORT=587
+    SMTP_SECURE=false
+    SMTP_USER=your-email@yourdomain.com
+    SMTP_PASS=your-password
+    CONTACT_EMAIL=info@codecraft.it
+    ```
+
+3.  **For detailed setup instructions**, see [EMAIL_SETUP.md](EMAIL_SETUP.md)
+
+### Deploy to Vercel
+
+1.  Install Vercel CLI: `npm i -g vercel`
+2.  Configure environment variables in Vercel Dashboard
+3.  Deploy: `vercel --prod`
+
+See [EMAIL_SETUP.md](EMAIL_SETUP.md) for complete deployment instructions.

@@ -29,17 +29,6 @@ export default defineConfig({
                 maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
               }
             }
-          },
-          {
-            urlPattern: /^https:\/\/firebasestorage\.googleapis\.com\/.*/i,
-            handler: 'CacheFirst',
-            options: {
-              cacheName: 'firebase-images-cache',
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 30 // 30 days
-              }
-            }
           }
         ]
       },
@@ -76,7 +65,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor': ['vue', 'vue-router', 'pinia'],
-          'firebase': ['firebase/app', 'firebase/firestore', 'firebase/analytics'],
           'ui': ['@vueuse/core', '@vueuse/head', '@vueuse/motion'],
           'lucide': ['lucide-vue-next']
         }

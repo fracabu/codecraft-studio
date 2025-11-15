@@ -7,9 +7,6 @@ import App from './App.vue'
 import router from './router'
 import './assets/main.css'
 
-// Firebase inizializzazione (temporaneamente commentato)
-// import './plugins/firebase'
-
 // Initialize gtag as no-op function first (fallback)
 window.gtag = window.gtag || function() {
   // No-op function when Analytics is not loaded

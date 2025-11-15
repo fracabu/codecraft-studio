@@ -99,33 +99,36 @@ const submitForm = async () => {
   submitMessage.value = null
 
   try {
-    // Prepare email data
-    const emailData = {
-      to: 'info@codecraft.it',
-      subject: `Nuovo contatto da ${form.nome} ${form.cognome}`,
-      body: `
-Nome: ${form.nome} ${form.cognome}
-Email: ${form.email}
-Telefono: ${form.telefono || 'Non fornito'}
+    // Determine API endpoint based on environment
+    const apiEndpoint = import.meta.env.DEV
+      ? 'http://localhost:3001/api/send-email'
+      : '/api/send-email'
 
-Messaggio:
-${form.messaggio}
+    // Send form data to backend
+    const response = await fetch(apiEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        nome: form.nome,
+        cognome: form.cognome,
+        email: form.email,
+        telefono: form.telefono,
+        messaggio: form.messaggio
+      })
+    })
 
----
-Messaggio inviato dal sito CodeCraft Studio
-      `.trim()
+    const data = await response.json()
+
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || 'Errore durante l\'invio')
     }
-
-    // Create mailto link
-    const mailtoLink = `mailto:${emailData.to}?subject=${encodeURIComponent(emailData.subject)}&body=${encodeURIComponent(emailData.body)}`
-    
-    // Open email client
-    window.location.href = mailtoLink
 
     // Show success message
     submitMessage.value = {
       type: 'success',
-      text: 'Email preparata! Controlla il tuo client di posta.'
+      text: 'Messaggio inviato con successo! Ti risponderemo presto.'
     }
 
     // Reset form after successful submission
@@ -134,13 +137,13 @@ Messaggio inviato dal sito CodeCraft Studio
         form[key] = ''
       })
       submitMessage.value = null
-    }, 3000)
+    }, 5000)
 
   } catch (error) {
     console.error('Error:', error)
     submitMessage.value = {
       type: 'error',
-      text: 'Errore durante l\'invio. Riprova o contattaci direttamente.'
+      text: error.message || 'Errore durante l\'invio. Riprova o contattaci direttamente.'
     }
   } finally {
     isSubmitting.value = false
