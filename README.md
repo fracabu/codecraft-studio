@@ -1,5 +1,7 @@
 # CodeCraft Studio - AI Business Automations
 
+🌐 **Live:** [www.codecraft.it](https://www.codecraft.it)
+
 CodeCraft Studio is a comprehensive web platform dedicated to showcasing and offering AI-powered business automation solutions. It focuses on integrating artificial intelligence into business processes to significantly reduce operational costs (up to 60%) and boost productivity (up to 40%), offering a clear return on investment through custom tools, process optimization, and strategic AI consulting services.
 
 ## Key Features
@@ -8,21 +10,26 @@ CodeCraft Studio is a comprehensive web platform dedicated to showcasing and off
 *   **Custom AI Tool Development:** Offers a portfolio of over 15 custom-developed AI tools, including calculators, dashboards, and AI content generators, designed to streamline specific business needs.
 *   **Performance & ROI Focused:** Highlights real-world case studies demonstrating significant cost savings and productivity gains, with an average ROI of 4.5x in 90 days.
 *   **Progressive Web App (PWA):** Delivers an installable, offline-capable, and app-like experience for enhanced user engagement and accessibility.
+*   **SEO Optimized:** Complete SEO implementation with sitemap, robots.txt, meta tags, and Google Search Console integration.
+*   **Custom Branding:** Professional favicon suite and Open Graph images for social media sharing.
 
 ## Tech Stack
 
 This project is built with a modern web development stack:
 
-*   **Frontend Framework:** Vue 3
-*   **Build Tool:** Vite
+*   **Frontend Framework:** Vue 3 (Composition API)
+*   **Build Tool:** Vite 7
 *   **State Management:** Pinia
-*   **Routing:** Vue Router
-*   **Styling:** Tailwind CSS
-*   **Backend/Cloud:** Firebase
-*   **PWA Capabilities:** Vite PWA Plugin
-*   **UI Icons:** Lucide Vue Next
+*   **Routing:** Vue Router with SEO metadata
+*   **Styling:** Tailwind CSS with custom design system
+*   **Email Backend:** Nodemailer + Aruba SMTP
+*   **Deployment:** Vercel (serverless functions)
+*   **Domain:** Custom domain (codecraft.it) with Vercel DNS
+*   **PWA Capabilities:** Vite PWA Plugin with offline support
+*   **UI Icons:** Lucide Vue Next & Heroicons
 *   **Utilities:** VueUse (Core, Head, Motion)
 *   **Testing:** Vitest
+*   **Analytics:** Google Analytics 4 (optional)
 
 ## Getting Started
 
@@ -95,7 +102,9 @@ Ensure you have Node.js and npm (or Yarn/pnpm) installed on your system.
 
 ## Email Configuration
 
-The contact form sends emails via SMTP. To set up email functionality:
+The contact form sends emails via Aruba SMTP. To set up email functionality:
+
+### Local Development
 
 1.  **Copy the environment variables template:**
     ```bash
@@ -104,20 +113,92 @@ The contact form sends emails via SMTP. To set up email functionality:
 
 2.  **Configure your SMTP settings in `.env`:**
     ```env
-    SMTP_HOST=smtp.aruba.it
-    SMTP_PORT=587
-    SMTP_SECURE=false
-    SMTP_USER=your-email@yourdomain.com
+    SMTP_HOST=smtps.aruba.it
+    SMTP_PORT=465
+    SMTP_SECURE=true
+    SMTP_USER=info@codecraft.it
     SMTP_PASS=your-password
+    SMTP_FROM_NAME=CodeCraft Studio
     CONTACT_EMAIL=info@codecraft.it
     ```
 
-3.  **For detailed setup instructions**, see [EMAIL_SETUP.md](EMAIL_SETUP.md)
+### Production (Vercel)
+
+1.  **Configure environment variables in Vercel Dashboard:**
+    - Go to: **Settings** → **Environment Variables**
+    - Add all 7 SMTP variables (see `.env.example`)
+    - Select **Production** environment
+    - Redeploy after adding variables
+
+2.  **Configure MX Records (Important!):**
+    - If using Vercel nameservers, add MX records for email delivery
+    - See [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md#configurazione-dominio) for details
 
 ### Deploy to Vercel
 
-1.  Install Vercel CLI: `npm i -g vercel`
-2.  Configure environment variables in Vercel Dashboard
-3.  Deploy: `vercel --prod`
+**Automatic Deployment (Recommended):**
+- Connect GitHub repository to Vercel
+- Every push to `main` triggers automatic deployment
 
-See [EMAIL_SETUP.md](EMAIL_SETUP.md) for complete deployment instructions.
+**Manual Deployment:**
+```bash
+npm i -g vercel
+vercel --prod
+```
+
+For complete setup instructions, see:
+- [EMAIL_SETUP.md](EMAIL_SETUP.md) - Email configuration
+- [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md) - Complete development guide
+
+## SEO & Performance
+
+This project includes comprehensive SEO optimization:
+
+- ✅ **Meta Tags:** Complete Open Graph, Twitter Card, and Schema.org structured data
+- ✅ **Sitemap:** Auto-generated XML sitemap at `/sitemap.xml`
+- ✅ **Robots.txt:** Search engine crawling configuration
+- ✅ **Google Search Console:** Verified property with submitted sitemap
+- ✅ **Canonical URLs:** Proper canonical tags for all pages
+- ✅ **Performance:** Optimized build with code splitting and lazy loading
+- ✅ **PWA:** Service worker with offline capabilities and caching
+
+### SEO Files
+
+- `public/sitemap.xml` - Site structure for search engines
+- `public/robots.txt` - Crawler instructions
+- `index.html` - Base meta tags and structured data
+- `src/router/index.js` - Per-page SEO metadata
+
+## Custom Domain Setup
+
+**Production URL:** https://www.codecraft.it
+
+**Configuration:**
+- **Domain Provider:** Aruba
+- **DNS:** Vercel nameservers
+- **SSL:** Automatic via Vercel
+- **MX Records:** Configured for Aruba email
+
+For detailed domain configuration, see [DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md#configurazione-dominio).
+
+## Documentation
+
+- **[DEVELOPMENT_GUIDE.md](DEVELOPMENT_GUIDE.md)** - Comprehensive development guide covering:
+  - Logo optimization and favicon generation
+  - Domain configuration (Aruba → Vercel)
+  - Email system setup with MX records
+  - SEO implementation and Google Search Console
+  - Technical fixes and troubleshooting
+  - Performance optimization
+
+- **[EMAIL_SETUP.md](EMAIL_SETUP.md)** - Email configuration details
+
+- **[CLAUDE.md](CLAUDE.md)** - Project instructions for Claude Code
+
+## Contributing
+
+This is a private project for CodeCraft Studio. For questions or collaboration inquiries, please contact via the website contact form.
+
+## License
+
+Proprietary - All rights reserved © 2024 CodeCraft Studio
