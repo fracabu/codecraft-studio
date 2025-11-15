@@ -1,225 +1,7 @@
 <template>
   <div id="app" class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-    <!-- Particle Background Effect -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,245,255,0.1),transparent_50%)]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(59,130,246,0.15),transparent_50%)]"></div>
-
-      <!-- Animated particles -->
-      <div v-for="i in 25" :key="i"
-           class="absolute w-1 h-1 bg-cyan-400 rounded-full animate-pulse"
-           :style="{
-             left: Math.random() * 100 + '%',
-             top: Math.random() * 100 + '%',
-             animationDelay: Math.random() * 2 + 's',
-             animationDuration: (2 + Math.random() * 3) + 's'
-           }">
-      </div>
-
-      <!-- Larger floating particles -->
-      <div v-for="i in 8" :key="`big-${i}`"
-           class="absolute w-2 h-2 bg-blue-400/40 rounded-full"
-           :style="{
-             left: Math.random() * 100 + '%',
-             top: Math.random() * 100 + '%',
-             animation: `float ${4 + Math.random() * 4}s ease-in-out infinite`,
-             animationDelay: Math.random() * 3 + 's'
-           }">
-      </div>
-    </div>
-
-    <!-- Header -->
-    <header class="relative z-50 p-6">
-      <nav class="flex justify-between items-center max-w-7xl mx-auto">
-        <!-- Logo CodeCraft -->
-        <router-link to="/" class="flex items-center space-x-3 group">
-          <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-500/25 transition-all duration-300 group-hover:scale-105">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <div>
-            <div class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-              CodeCraft
-            </div>
-            <div class="text-sm text-gray-400 tracking-wider font-medium">
-              AI AUTOMATIONS
-            </div>
-          </div>
-        </router-link>
-
-        <!-- Navigation Desktop -->
-        <div class="hidden md:flex space-x-8">
-          <router-link
-            to="/"
-            :class="[
-              'text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group',
-              $route.name === 'Home' ? 'text-cyan-400' : ''
-            ]"
-          >
-            Home
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"
-                  :class="{ 'w-full': $route.name === 'Home' }"></span>
-          </router-link>
-
-          <router-link
-            to="/servizi"
-            :class="[
-              'text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group',
-              $route.name === 'Servizi' ? 'text-cyan-400' : ''
-            ]"
-          >
-            Servizi
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"
-                  :class="{ 'w-full': $route.name === 'Servizi' }"></span>
-          </router-link>
-
-          <router-link
-            to="/tool"
-            :class="[
-              'text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group',
-              $route.name === 'Tool' ? 'text-cyan-400' : ''
-            ]"
-          >
-            Tool
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"
-                  :class="{ 'w-full': $route.name === 'Tool' }"></span>
-          </router-link>
-
-
-          <router-link
-            to="/contatti"
-            :class="[
-              'text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group',
-              $route.name === 'Contatti' ? 'text-cyan-400' : ''
-            ]"
-          >
-            Contatti
-            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"
-                  :class="{ 'w-full': $route.name === 'Contatti' }"></span>
-          </router-link>
-        </div>
-
-        <!-- CTA Button Desktop -->
-        <div class="hidden md:block">
-          <router-link
-            to="/contatti"
-            class="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-white hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 flex items-center space-x-2"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v14a2 2 0 002 2z"/>
-            </svg>
-            <span>Consulenza Gratuita</span>
-          </router-link>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <button
-          @click="toggleMobileMenu"
-          class="md:hidden text-white hover:text-cyan-400 transition-colors p-2 rounded-lg hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
-          :class="{ 'text-cyan-400': isMobileMenuOpen }"
-        >
-          <svg class="w-6 h-6 transition-transform duration-300" :class="{ 'rotate-90': isMobileMenuOpen }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              v-if="!isMobileMenuOpen"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-            <path
-              v-else
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-      </nav>
-
-      <!-- Mobile Menu -->
-      <Transition name="slide-down">
-        <div
-          v-if="isMobileMenuOpen"
-          class="md:hidden absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-sm border-t border-white/10 mx-6 rounded-b-2xl shadow-2xl"
-        >
-          <div class="flex flex-col space-y-2 p-6">
-            <router-link
-              to="/"
-              @click="closeMobileMenu"
-              :class="[
-                'flex items-center space-x-3 py-3 px-4 rounded-lg hover:bg-white/10 transition-colors',
-                $route.name === 'Home' ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400'
-              ]"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-              </svg>
-              <span>Home</span>
-            </router-link>
-
-            <router-link
-              to="/servizi"
-              @click="closeMobileMenu"
-              :class="[
-                'flex items-center space-x-3 py-3 px-4 rounded-lg hover:bg-white/10 transition-colors',
-                $route.name === 'Servizi' ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400'
-              ]"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-              </svg>
-              <span>Servizi</span>
-            </router-link>
-
-            <router-link
-              to="/tool"
-              @click="closeMobileMenu"
-              :class="[
-                'flex items-center space-x-3 py-3 px-4 rounded-lg hover:bg-white/10 transition-colors',
-                $route.name === 'Tool' ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400'
-              ]"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-              <span>Tool</span>
-            </router-link>
-
-
-            <router-link
-              to="/contatti"
-              @click="closeMobileMenu"
-              :class="[
-                'flex items-center space-x-3 py-3 px-4 rounded-lg hover:bg-white/10 transition-colors',
-                $route.name === 'Contatti' ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400'
-              ]"
-            >
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              <span>Contatti</span>
-            </router-link>
-
-            <!-- Mobile CTA Button -->
-            <div class="pt-4 border-t border-white/10 mt-4">
-              <router-link
-                to="/contatti"
-                @click="closeMobileMenu"
-                class="w-full px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-white hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 flex items-center justify-center space-x-2"
-              >
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2-2v14a2 2 0 002 2z"/>
-                </svg>
-                <span>Consulenza Gratuita</span>
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </Transition>
-    </header>
+    <!-- Header Component -->
+    <AppHeader />
 
     <!-- Main Content -->
     <main class="relative z-10">
@@ -227,100 +9,14 @@
       <router-view :key="$route.fullPath" />
     </main>
 
-    <!-- Footer -->
-    <footer class="relative z-10 py-12 px-6 border-t border-white/10 bg-slate-900/50">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid md:grid-cols-4 gap-8 mb-8">
-          <!-- Logo e descrizione -->
-          <div class="col-span-2">
-            <router-link to="/" class="flex items-center space-x-3 mb-6 group">
-              <div class="w-10 h-10 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <div>
-                <div class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">CodeCraft Studio</div>
-                <div class="text-sm text-gray-400">AI AUTOMATIONS</div>
-              </div>
-            </router-link>
-            <p class="text-gray-300 mb-4 max-w-md">
-              Automatizziamo i processi business con intelligenza artificiale per ridurre costi e aumentare produttività.
-            </p>
-            <div class="flex space-x-4">
-              <a href="mailto:info@codecraft.it" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                </svg>
-              </a>
-              <a href="tel:+393204933807" class="text-gray-400 hover:text-cyan-400 transition-colors">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Links rapidi -->
-          <div>
-            <h3 class="text-white font-semibold mb-4">Servizi</h3>
-            <ul class="space-y-2 text-gray-400">
-              <li><router-link to="/servizi" class="hover:text-cyan-400 transition-colors">Automazioni AI</router-link></li>
-              <li><router-link to="/servizi" class="hover:text-cyan-400 transition-colors">Ottimizzazione Processi</router-link></li>
-              <li><router-link to="/tool" class="hover:text-cyan-400 transition-colors">Tool Personalizzati</router-link></li>
-              <li><router-link to="/contatti" class="hover:text-cyan-400 transition-colors">Consulenza</router-link></li>
-            </ul>
-          </div>
-
-          <!-- Contatti -->
-          <div>
-            <h3 class="text-white font-semibold mb-4">Contatti</h3>
-            <ul class="space-y-2 text-gray-400">
-              <li>
-                <a href="mailto:info@codecraft.it" class="hover:text-cyan-400 transition-colors">
-                  info@codecraft.it
-                </a>
-              </li>
-              <li>
-                <a href="tel:+393204933807" class="hover:text-cyan-400 transition-colors">
-                  +39 320 493 3807
-                </a>
-              </li>
-              <li>Via Innocenzo XI, 44</li>
-              <li>00165 Roma, IT</li>
-              <li>
-                <a href="https://www.codecraft.it" class="hover:text-cyan-400 transition-colors">
-                  www.codecraft.it
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="pt-8 border-t border-white/10 text-center">
-          <p class="text-gray-400 text-sm">
-            © 2024 CodeCraft Studio - Via Innocenzo XI, 44 - 00165 Roma - P.IVA: IT123456789
-          </p>
-        </div>
-      </div>
-    </footer>
+    <!-- Footer Component -->
+    <AppFooter />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-// Mobile menu state
-const isMobileMenuOpen = ref(false)
-
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
-
-const closeMobileMenu = () => {
-  isMobileMenuOpen.value = false
-}
+import AppHeader from './components/layout/AppHeader.vue'
+import AppFooter from './components/layout/AppFooter.vue'
 </script>
 
 <style>
@@ -347,17 +43,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #00f5ff;
+  background: #f43f5e;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00d4ff;
+  background: #ec4899;
 }
 
 /* Router link active states */
 .router-link-active {
-  color: #00f5ff !important;
+  color: #f43f5e !important;
 }
 
 /* Page transitions - temporarily disabled for debugging */
@@ -416,14 +112,14 @@ body {
 
 /* Focus styles for accessibility */
 *:focus-visible {
-  outline: 2px solid theme('colors.cyan.400');
+  outline: 2px solid #f43f5e;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
 /* Text selection styling */
 ::selection {
-  background-color: rgba(6, 182, 212, 0.3);
+  background-color: rgba(244, 63, 94, 0.3);
   color: white;
 }
 

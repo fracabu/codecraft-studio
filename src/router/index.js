@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ServicesView from '../views/ServicesView.vue'
 import ToolView from '../views/ToolView.vue'
+import ProjectDetail from '../views/ProjectDetail.vue'
 import ContattiView from '../views/ContattiView.vue'
 
 // Routes with SEO metadata
@@ -48,6 +49,20 @@ const routes = [
       ogDescription: '15+ tool personalizzati per automatizzare calcoli e processi. Dalla creazione plugin NPM alle dashboard analytics.',
       ogImage: '/og-images/tool.jpg',
       canonicalUrl: 'https://www.codecraft.it/tool'
+    }
+  },
+  {
+    path: '/progetti/:slug',
+    name: 'ProjectDetail',
+    component: ProjectDetail,
+    meta: {
+      title: 'Progetto | CodeCraft Studio',
+      description: 'Scopri i dettagli del progetto sviluppato da CodeCraft Studio: tecnologie utilizzate, risultati ottenuti e funzionalità implementate.',
+      keywords: 'progetto CodeCraft, case study, portfolio sviluppo web, SaaS, automazioni',
+      ogTitle: 'Progetto - CodeCraft Studio',
+      ogDescription: 'Dettagli completi del progetto: stack tecnologico, funzionalità e risultati misurabili.',
+      ogImage: '/og-images/progetti.jpg',
+      canonicalUrl: 'https://www.codecraft.it/progetti'
     }
   },
   {
