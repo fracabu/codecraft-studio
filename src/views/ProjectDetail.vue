@@ -13,19 +13,13 @@
             <span class="text-white">{{ project.title }}</span>
           </nav>
 
-          <!-- Category Badge -->
-          <div class="inline-flex items-center space-x-2 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mb-6">
-            <span class="text-primary-400 font-medium text-sm">{{ project.category }}</span>
-            <span v-if="project.status" class="text-xs text-gray-400">• {{ project.status }}</span>
-          </div>
-
           <!-- Title -->
-          <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             {{ project.title }}
           </h1>
 
           <!-- Tagline -->
-          <p class="text-xl md:text-2xl text-gray-300 mb-8">
+          <p class="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8">
             {{ project.tagline }}
           </p>
 

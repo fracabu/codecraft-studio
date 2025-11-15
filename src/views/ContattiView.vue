@@ -1,22 +1,35 @@
 <template>
   <div class="h-screen pt-4 flex flex-col overflow-hidden">
     <!-- Hero Section Centrata -->
-    <section class="flex-1 px-6 flex flex-col justify-start pt-16 overflow-y-auto">
+    <section class="flex-1 px-6 flex flex-col justify-center overflow-y-auto">
       <div class="max-w-4xl mx-auto text-center space-y-6">
 
-        <h1 class="text-5xl md:text-7xl font-bold">
+        <h1
+          v-motion
+          :initial="{ opacity: 0, y: 50 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 100 } }"
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
+        >
           <span class="text-white">Iniziamo </span>
           <span class="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
             Insieme
           </span>
         </h1>
 
-        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
+        <p
+          v-motion
+          :initial="{ opacity: 0, y: 30 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 300 } }"
+          class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
+        >
           Consulenza gratuita di 30 minuti per analizzare i tuoi processi.
         </p>
 
         <!-- Contact Form -->
-        <form 
+        <form
+          v-motion
+          :initial="{ opacity: 0, y: 40 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 500 } }" 
           @submit.prevent="submitForm"
           class="max-w-lg mx-auto space-y-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
         >
