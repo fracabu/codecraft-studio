@@ -2,20 +2,13 @@
   <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
     <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
       <!-- Logo CodeCraft -->
-      <router-link to="/" class="flex items-center space-x-3 group">
-        <div class="w-11 h-11 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300">
-          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-          </svg>
-        </div>
-        <div>
-          <div class="text-xl font-bold text-white">
-            CodeCraft
-          </div>
-          <div class="text-xs text-gray-400 tracking-wide">
-            Studio
-          </div>
-        </div>
+      <router-link to="/" class="flex items-center group">
+        <img
+          src="/logo-code2.png"
+          alt="CodeCraft Studio"
+          style="height: 48px; width: auto; display: block;"
+          class="group-hover:scale-105 transition-transform duration-300"
+        />
       </router-link>
 
       <!-- Navigation Desktop -->

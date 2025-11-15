@@ -4,17 +4,12 @@
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <!-- Brand -->
         <div class="md:col-span-1">
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
-              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
-            </div>
-            <div>
-              <div class="text-lg font-bold text-white">CodeCraft</div>
-              <div class="text-xs text-gray-400">Studio</div>
-            </div>
-          </div>
+          <img
+            src="/logo-code2.png"
+            alt="CodeCraft Studio"
+            style="height: 48px; width: auto; display: block;"
+            class="mb-4"
+          />
           <p class="text-sm text-gray-400 leading-relaxed">
             Sviluppiamo app e tool AI-powered per far crescere il tuo business.
           </p>
