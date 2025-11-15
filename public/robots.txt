@@ -1,0 +1,15 @@
+# robots.txt per CodeCraft Studio
+# Consente a tutti i motori di ricerca di indicizzare il sito
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.codecraft.it/sitemap.xml
+
+# Blocca file sensibili (se presenti)
+Disallow: /api/
+Disallow: /*.json$
+
+# Crawl-delay (opzionale, rallenta i bot troppo aggressivi)
+# Crawl-delay: 1
