@@ -83,6 +83,9 @@
           <div v-if="submitMessage" :class="['text-center text-sm', submitMessage.type === 'success' ? 'text-green-400' : 'text-red-400']">
             {{ submitMessage.text }}
           </div>
+
+          <!-- Versione deployment per debug -->
+          <p class="text-xs text-gray-500 text-center mt-2">v2024.11.15.1</p>
         </form>
       </div>
     </section>
