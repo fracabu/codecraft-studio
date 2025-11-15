@@ -85,7 +85,7 @@
           </div>
 
           <!-- Versione deployment per debug -->
-          <p class="text-xs text-gray-500 text-center mt-2">v2024.11.15.1</p>
+          <p class="text-xs text-gray-500 text-center mt-2">v2024.11.16.1-debug</p>
         </form>
       </div>
     </section>
@@ -114,11 +114,19 @@ const submitForm = async () => {
   isSubmitting.value = true
   submitMessage.value = null
 
+  console.log('Form submission started')
+
   try {
     // Determine API endpoint based on environment
     const apiEndpoint = import.meta.env.DEV
       ? 'http://localhost:3001/api/send-email'
       : '/api/send-email'
+
+    console.log('API endpoint:', apiEndpoint)
+
+    // Create AbortController for timeout (30 seconds for mobile)
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 30000)
 
     // Send form data to backend
     const response = await fetch(apiEndpoint, {
@@ -132,13 +140,19 @@ const submitForm = async () => {
         email: form.email,
         telefono: form.telefono,
         messaggio: form.messaggio
-      })
+      }),
+      signal: controller.signal
     })
 
+    clearTimeout(timeoutId)
+
+    console.log('Response status:', response.status)
+
     const data = await response.json()
+    console.log('Response data:', data)
 
     if (!response.ok || !data.success) {
-      throw new Error(data.message || 'Errore durante l\'invio')
+      throw new Error(data.message || data.error || 'Errore durante l\'invio')
     }
 
     // Show success message
@@ -156,13 +170,23 @@ const submitForm = async () => {
     }, 5000)
 
   } catch (error) {
-    console.error('Error:', error)
+    console.error('Error submitting form:', error)
+
+    let errorMessage = 'Errore durante l\'invio. Riprova o contattaci direttamente.'
+
+    if (error.name === 'AbortError') {
+      errorMessage = 'Richiesta scaduta. Controlla la connessione e riprova.'
+    } else if (error.message) {
+      errorMessage = error.message
+    }
+
     submitMessage.value = {
       type: 'error',
-      text: error.message || 'Errore durante l\'invio. Riprova o contattaci direttamente.'
+      text: errorMessage
     }
   } finally {
     isSubmitting.value = false
+    console.log('Form submission completed')
   }
 }
 </script>

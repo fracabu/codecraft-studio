@@ -27,6 +27,16 @@ export default async function handler(req, res) {
   try {
     const { nome, cognome, email, telefono, messaggio } = req.body
 
+    // Log environment check (remove password for security)
+    console.log('Environment check:', {
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE,
+      user: process.env.SMTP_USER,
+      hasPassword: !!process.env.SMTP_PASS,
+      contactEmail: process.env.CONTACT_EMAIL
+    })
+
     // Validate required fields
     if (!nome || !cognome || !email || !messaggio) {
       return res.status(400).json({
@@ -44,10 +54,19 @@ export default async function handler(req, res) {
       })
     }
 
+    // Check SMTP configuration
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('Missing SMTP configuration')
+      return res.status(500).json({
+        success: false,
+        message: 'Configurazione email non completa'
+      })
+    }
+
     // Create nodemailer transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || '587'),
+      port: parseInt(process.env.SMTP_PORT || '465'),
       secure: process.env.SMTP_SECURE === 'true',
       auth: {
         user: process.env.SMTP_USER,
@@ -56,8 +75,15 @@ export default async function handler(req, res) {
       tls: {
         // Don't fail on invalid certificates
         rejectUnauthorized: false
-      }
+      },
+      debug: true, // Enable debug output
+      logger: true // Log to console
     })
+
+    // Verify SMTP connection
+    console.log('Testing SMTP connection...')
+    await transporter.verify()
+    console.log('SMTP connection successful')
 
     // Email content
     const mailOptions = {
@@ -207,9 +233,13 @@ ${messaggio}
     }
 
     // Send email
+    console.log('Sending email...')
     const info = await transporter.sendMail(mailOptions)
 
-    console.log('Email sent:', info.messageId)
+    console.log('Email sent successfully:', {
+      messageId: info.messageId,
+      response: info.response
+    })
 
     return res.status(200).json({
       success: true,
@@ -218,12 +248,18 @@ ${messaggio}
     })
 
   } catch (error) {
-    console.error('Error sending email:', error)
+    console.error('Error sending email:', {
+      message: error.message,
+      code: error.code,
+      command: error.command,
+      stack: error.stack
+    })
 
     return res.status(500).json({
       success: false,
       message: 'Errore durante l\'invio dell\'email',
-      error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+      error: error.message,
+      code: error.code
     })
   }
 }
