@@ -93,14 +93,16 @@ Messaggio inviato dal form di contatto su https://codecraft-studio.vercel.app
 
                   <!-- Header con Logo -->
                   <tr>
-                    <td style="background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); padding: 40px 30px; text-align: center;">
-                      <div style="background-color: rgba(255, 255, 255, 0.95); width: 80px; height: 80px; margin: 0 auto 20px; border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
-                        <span style="font-size: 40px; font-weight: bold; background: linear-gradient(135deg, #0ea5e9, #10b981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 80px;">CC</span>
-                      </div>
+                    <td style="background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%); padding: 40px 30px; text-align: center;">
+                      <img
+                        src="https://codecraft-studio.vercel.app/logo-code2.png"
+                        alt="CodeCraft Studio"
+                        style="height: 60px; width: auto; display: block; margin: 0 auto 20px;"
+                      />
                       <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 700; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
                         CodeCraft Studio
                       </h1>
-                      <p style="margin: 8px 0 0; color: rgba(255, 255, 255, 0.9); font-size: 14px;">
+                      <p style="margin: 8px 0 0; color: rgba(255, 255, 255, 0.95); font-size: 14px;">
                         AI Business Automations
                       </p>
                     </td>
@@ -109,7 +111,7 @@ Messaggio inviato dal form di contatto su https://codecraft-studio.vercel.app
                   <!-- Badge Nuovo Contatto -->
                   <tr>
                     <td style="padding: 30px 30px 20px;">
-                      <div style="background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%); color: white; padding: 12px 20px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 16px;">
+                      <div style="background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%); color: white; padding: 12px 20px; border-radius: 8px; text-align: center; font-weight: 600; font-size: 16px;">
                         ✨ Nuovo Messaggio Ricevuto
                       </div>
                     </td>
@@ -120,7 +122,7 @@ Messaggio inviato dal form di contatto su https://codecraft-studio.vercel.app
                     <td style="padding: 0 30px 30px;">
                       <table role="presentation" style="width: 100%; border-collapse: collapse;">
                         <tr>
-                          <td style="padding: 15px; background-color: #f0f9ff; border-left: 4px solid #0ea5e9; border-radius: 8px;">
+                          <td style="padding: 15px; background-color: #fff1f2; border-left: 4px solid #f43f5e; border-radius: 8px;">
                             <p style="margin: 0 0 8px; color: #64748b; font-size: 12px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">
                               Nome Completo
                             </p>
@@ -138,19 +140,19 @@ Messaggio inviato dal form di contatto su https://codecraft-studio.vercel.app
                       <table role="presentation" style="width: 100%; border-collapse: collapse;">
                         <tr>
                           <td style="width: 50%; padding-right: 8px;">
-                            <div style="padding: 15px; background-color: #f0fdf4; border-left: 4px solid #10b981; border-radius: 8px;">
+                            <div style="padding: 15px; background-color: #fdf2f8; border-left: 4px solid #f472b6; border-radius: 8px;">
                               <p style="margin: 0 0 8px; color: #64748b; font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">
                                 Email
                               </p>
                               <p style="margin: 0; font-size: 14px;">
-                                <a href="mailto:${email}" style="color: #10b981; text-decoration: none; font-weight: 500;">
+                                <a href="mailto:${email}" style="color: #ec4899; text-decoration: none; font-weight: 500;">
                                   ${email}
                                 </a>
                               </p>
                             </div>
                           </td>
                           <td style="width: 50%; padding-left: 8px;">
-                            <div style="padding: 15px; background-color: #fef3f2; border-left: 4px solid #f59e0b; border-radius: 8px;">
+                            <div style="padding: 15px; background-color: #ffe4e6; border-left: 4px solid #fb7185; border-radius: 8px;">
                               <p style="margin: 0 0 8px; color: #64748b; font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">
                                 Telefono
                               </p>
@@ -185,7 +187,7 @@ ${messaggio}
                         Messaggio ricevuto dal form di contatto su
                       </p>
                       <p style="margin: 0; text-align: center;">
-                        <a href="https://codecraft-studio.vercel.app" style="color: #0ea5e9; text-decoration: none; font-weight: 600; font-size: 14px;">
+                        <a href="https://codecraft-studio.vercel.app" style="color: #f43f5e; text-decoration: none; font-weight: 600; font-size: 14px;">
                           codecraft-studio.vercel.app
                         </a>
                       </p>
