@@ -22,16 +22,20 @@
           "value": "text/plain"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
     },
     {
-      "source": "/((?!.*\\.(xml|txt|ico|png|jpg|jpeg|svg|webmanifest|webp|woff|woff2|ttf|eot|css|js|json)).*)",
-      "destination": "/index.html"
+      "source": "/site.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        }
+      ]
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/.*", "dest": "/api/$0" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
