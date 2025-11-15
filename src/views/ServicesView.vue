@@ -12,7 +12,7 @@
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-10 md:mb-16 text-center px-2"
         >
           <span class="text-white block sm:inline">I Nostri </span>
-          <span class="bg-gradient-to-r from-green-400 to-cyan-400 bg-clip-text text-transparent block sm:inline">
+          <span class="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 bg-clip-text text-transparent block sm:inline">
             Servizi
           </span>
         </h1>
@@ -25,15 +25,15 @@
             v-motion
             :initial="{ opacity: 0, x: -50 }"
             :visible="{ opacity: 1, x: 0, transition: { duration: 600, delay: 200 + index * 150 } }"
-            class="group p-5 sm:p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-green-400/50 transition-all duration-300 hover:scale-105"
+            class="group p-5 sm:p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:bg-white/10 hover:border-primary-500/50 transition-all duration-300 hover:scale-105"
           >
             <!-- Icon -->
-            <div class="w-14 h-14 sm:w-16 sm:h-16 mb-3 sm:mb-4 bg-gradient-to-r from-green-500 to-cyan-600 rounded-xl relative shadow-lg group-hover:shadow-green-500/25 transition-all duration-300 group-hover:scale-110">
+            <div class="w-14 h-14 sm:w-16 sm:h-16 mb-3 sm:mb-4 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl relative shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300 group-hover:scale-110">
               <component :is="getServiceIcon(service.title)" class="w-7 h-7 sm:w-8 sm:h-8 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
             </div>
 
             <!-- Title -->
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-green-400 transition-colors">
+            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-primary-400 transition-colors">
               {{ service.title }}
             </h3>
 

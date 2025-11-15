@@ -57,15 +57,17 @@
 
       <!-- CTA Button Desktop -->
       <div class="hidden md:block">
-        <router-link
+        <BaseButton
+          tag="router-link"
           to="/contatti"
-          class="px-6 py-2.5 bg-gradient-to-r from-primary-500 to-accent-600 rounded-xl font-semibold text-white hover:from-primary-600 hover:to-accent-700 transition-all duration-300 shadow-lg hover:shadow-primary-500/25 inline-flex items-center space-x-2"
+          variant="primary"
+          size="md"
         >
           <span>Contattaci</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
-        </router-link>
+        </BaseButton>
       </div>
 
       <!-- Mobile Menu Button -->
@@ -155,16 +157,19 @@
 
           <!-- Mobile CTA Button -->
           <div class="pt-4 border-t border-white/10 mt-4">
-            <router-link
+            <BaseButton
+              tag="router-link"
               to="/contatti"
+              variant="primary"
+              size="md"
+              full-width
               @click="closeMobileMenu"
-              class="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-600 rounded-lg font-semibold text-white hover:from-primary-600 hover:to-accent-700 transition-all duration-300 flex items-center justify-center space-x-2"
             >
               <span>Contattaci</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
-            </router-link>
+            </BaseButton>
           </div>
         </div>
       </div>
@@ -174,6 +179,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import BaseButton from '@/components/common/BaseButton.vue'
 
 const isMobileMenuOpen = ref(false)
 

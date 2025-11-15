@@ -34,18 +34,22 @@
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 500 } }"
             class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <router-link
+            <BaseButton
+              tag="router-link"
               to="/contatti"
-              class="px-8 py-4 bg-gradient-to-r from-rose-500 to-pink-600 rounded-xl font-semibold text-white hover:from-rose-600 hover:to-pink-700 transition-all duration-300 shadow-lg shadow-rose-500/25 hover:shadow-rose-500/40 hover:scale-105"
+              variant="primary"
+              size="lg"
             >
               Consulenza Gratuita
-            </router-link>
-            <router-link
+            </BaseButton>
+            <BaseButton
+              tag="router-link"
               to="/tool"
-              class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl font-semibold text-white hover:bg-white/10 hover:border-rose-500/50 transition-all duration-300"
+              variant="secondary"
+              size="lg"
             >
               Vedi i Nostri Progetti
-            </router-link>
+            </BaseButton>
           </div>
 
           <!-- Trust indicators - Simplified -->
@@ -396,18 +400,22 @@
                 Consulenza gratuita di 30 minuti per capire come possiamo aiutare il tuo business a crescere.
               </p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <router-link
+                <BaseButton
+                  tag="router-link"
                   to="/contatti"
-                  class="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-600 rounded-xl font-semibold text-white hover:from-primary-600 hover:to-accent-700 transition-all duration-300 shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:scale-105"
+                  variant="primary"
+                  size="lg"
                 >
                   Prenota Consulenza Gratuita
-                </router-link>
-                <router-link
+                </BaseButton>
+                <BaseButton
+                  tag="router-link"
                   to="/tool"
-                  class="px-8 py-4 bg-white/5 border border-white/10 rounded-xl font-semibold text-white hover:bg-white/10 hover:border-primary-500/50 transition-all duration-300"
+                  variant="secondary"
+                  size="lg"
                 >
                   Esplora i Progetti
-                </router-link>
+                </BaseButton>
               </div>
             </div>
           </div>
@@ -418,7 +426,7 @@
 </template>
 
 <script setup>
-// Clean HomeView without problematic dynamic components
+import BaseButton from '@/components/common/BaseButton.vue'
 </script>
 
 <style scoped>

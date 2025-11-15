@@ -11,7 +11,7 @@
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
         >
           <span class="text-white">Iniziamo </span>
-          <span class="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 bg-clip-text text-transparent">
             Insieme
           </span>
         </h1>
@@ -39,14 +39,14 @@
               type="text"
               required
               placeholder="Nome *"
-              class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300"
+              class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-300"
             />
             <input
               v-model="form.cognome"
               type="text"
               required
               placeholder="Cognome *"
-              class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300"
+              class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-300"
             />
           </div>
 
@@ -55,7 +55,7 @@
             type="email"
             required
             placeholder="Email *"
-            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300"
+            class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-300"
           />
 
           <textarea
@@ -66,20 +66,19 @@
             class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300 resize-none"
           ></textarea>
 
-          <button
+          <BaseButton
             type="submit"
             :disabled="isSubmitting"
-            class="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg font-semibold text-white hover:from-orange-600 hover:to-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-orange-500/25 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            :loading="isSubmitting"
+            variant="primary"
+            size="md"
+            full-width
           >
             <svg v-if="!isSubmitting" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
             </svg>
-            <svg v-else class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
             <span>{{ isSubmitting ? 'Invio...' : 'Invia Messaggio' }}</span>
-          </button>
+          </BaseButton>
 
           <div v-if="submitMessage" :class="['text-center text-sm', submitMessage.type === 'success' ? 'text-green-400' : 'text-red-400']">
             {{ submitMessage.text }}
@@ -92,6 +91,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import BaseButton from '@/components/common/BaseButton.vue'
 
 // Form data
 const form = reactive({
