@@ -30,7 +30,7 @@
       "destination": "/api/:path*"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!.*\\.(xml|txt|ico|png|jpg|jpeg|svg|webmanifest|webp|woff|woff2|ttf|eot|css|js|json)).*)",
       "destination": "/index.html"
     }
   ]
