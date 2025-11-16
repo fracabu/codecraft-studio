@@ -89,8 +89,8 @@
       <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
         <p>© 2025 CodeCraft Studio. Tutti i diritti riservati.</p>
         <div class="flex space-x-6 mt-4 md:mt-0">
-          <a href="#" class="hover:text-primary-400 transition-colors">Privacy Policy</a>
-          <a href="#" class="hover:text-primary-400 transition-colors">Termini di Servizio</a>
+          <router-link to="/privacy" class="hover:text-primary-400 transition-colors">Privacy Policy</router-link>
+          <router-link to="/cookie" class="hover:text-primary-400 transition-colors">Cookie Policy</router-link>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@ This is a Vue 3 application using the Composition API with modern tooling for an
 
 ### Core Stack
 - **Vue 3** with Composition API (`<script setup>` syntax)
-- **Vite** for build tooling and development server
+- **Vite 7** for build tooling and development server
 - **Vue Router** with comprehensive SEO metadata and analytics tracking
 - **Pinia** for state management
 - **Tailwind CSS** for styling with custom design system
@@ -31,15 +31,15 @@ This is a Vue 3 application using the Composition API with modern tooling for an
 ### Key Libraries
 - **@vueuse/core**: Vue composition utilities
 - **@vueuse/head**: Head management for SEO
-- **@vueuse/motion**: Animation library with custom motion- elements
+- **@vueuse/motion**: Animation library with custom `motion-` elements
 - **lucide-vue-next** and **@heroicons/vue**: Icon libraries
 - **vite-plugin-pwa**: Progressive Web App capabilities
-- **nodemailer**: Email sending via SMTP
+- **nodemailer**: Email sending via SMTP (Aruba)
 - **express**: Local development server
 - **cors**: CORS middleware for API endpoints
 
 ### Project Structure
-- `src/views/` - Page components (HomeView, ServicesView, ToolView, ContattiView)
+- `src/views/` - Page components (HomeView, ServicesView, ToolView, ProjectDetail, ContattiView)
 - `src/components/common/` - Reusable UI components (BaseButton, BaseCard, BaseModal, BaseSkeleton, BaseBreadcrumbs, LoadingSpinner)
 - `src/components/layout/` - Layout components (AppHeader, AppFooter, HeroSection, ParticleBackground)
 - `src/stores/` - Pinia stores (auth.js, counter.js)
@@ -68,8 +68,9 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
 
 ### Styling & Theming
 - **Tailwind CSS** with custom color palette:
-  - Primary colors (sky blue theme): 50-900 scale, default #0ea5e9
-  - Secondary colors (emerald green): 50-900 scale, default #10b981
+  - Primary colors (rose/pink theme): 50-900 scale, default #f43f5e
+  - Accent colors (pink): 50-900 scale, default #ec4899
+  - Dark colors: 900-500 scale for backgrounds (#0f172a deep background)
 - **Custom Fonts**: Inter (sans), Space Grotesk (display)
 - **Custom Animations**: fade-in-up, pulse-slow, bounce-slow, glow
 - **Plugins**: @tailwindcss/forms, @tailwindcss/typography
@@ -79,7 +80,6 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
 - **Path Alias**: `@` points to `./src`
 - **Manual Chunk Splitting**:
   - `vendor`: Vue core (vue, vue-router, pinia)
-  - `firebase`: Firebase modules
   - `ui`: VueUse libraries
   - `lucide`: Icon library
 - **Production Optimizations**:
@@ -88,7 +88,7 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
   - Sourcemaps disabled for security
 - **PWA Configuration**:
   - Auto-update service worker
-  - Runtime caching for Google Fonts and Firebase Storage
+  - Runtime caching for Google Fonts
   - Manifest: "CodeCraft Studio - AI Business Automations"
 - **Custom Elements**: `motion-` prefixed tags for @vueuse/motion
 
@@ -96,13 +96,19 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
 - **Contact Form** in `ContattiView.vue` sends to backend API
 - **Local Development**: Express server (`server/index.js`) on port 3001
 - **Production**: Vercel serverless function (`api/send-email.js`)
-- **Email Sending**: Nodemailer with SMTP configuration
+- **Email Sending**: Nodemailer with Aruba SMTP configuration
+- **Email Template**: HTML email with CodeCraft branding, logo, and modern design
 - **Configuration**: See `EMAIL_SETUP.md` for complete setup guide
 - **Environment Variables Required**:
-  - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`
-  - `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM_NAME`
-  - `CONTACT_EMAIL` (where messages are sent)
+  - `SMTP_HOST` - Use `smtps.aruba.it` for SSL (port 465)
+  - `SMTP_PORT` - Port number (465 for SSL, 587 for TLS)
+  - `SMTP_SECURE` - Set to `true` for SSL
+  - `SMTP_USER` - SMTP username/email
+  - `SMTP_PASS` - SMTP password
+  - `SMTP_FROM_NAME` - Sender name for emails
+  - `CONTACT_EMAIL` - Email address where contact form submissions are sent (info@codecraft.it)
 - Form automatically switches between local (`http://localhost:3001/api/send-email`) and production (`/api/send-email`) endpoints
+- Both server implementations include comprehensive logging and error handling
 
 ### ESLint Configuration
 - Modern flat config format (eslint.config.js)
@@ -114,8 +120,8 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
 ### Environment Variables
 Required variables (see `.env.example`):
 - `VITE_GA_MEASUREMENT_ID` - Google Analytics 4 measurement ID (optional)
-- `SMTP_HOST` - SMTP server host (e.g., smtp.aruba.it)
-- `SMTP_PORT` - SMTP port (587 for TLS, 465 for SSL)
+- `SMTP_HOST` - SMTP server host (use `smtps.aruba.it` for SSL)
+- `SMTP_PORT` - SMTP port (465 for SSL, 587 for TLS)
 - `SMTP_SECURE` - Use SSL (true/false)
 - `SMTP_USER` - SMTP username/email
 - `SMTP_PASS` - SMTP password
@@ -126,5 +132,12 @@ Required variables (see `.env.example`):
 - Copy `.env.example` to `.env` for local development
 - Configure environment variables in Vercel dashboard for production
 - Never commit `.env` to version control
+
+### Deployment & Domain
+- **Production URL**: https://www.codecraft.it
+- **Hosting**: Vercel with automatic deployments from `main` branch
+- **Domain Provider**: Aruba (using Vercel nameservers)
+- **SSL**: Automatic via Vercel
+- **MX Records**: Configured for Aruba email service
 
 When making changes, ensure you maintain the existing code style and follow the Vue 3 Composition API patterns used throughout the codebase.

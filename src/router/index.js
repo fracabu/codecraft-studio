@@ -6,6 +6,8 @@ import ServicesView from '../views/ServicesView.vue'
 import ToolView from '../views/ToolView.vue'
 import ProjectDetail from '../views/ProjectDetail.vue'
 import ContattiView from '../views/ContattiView.vue'
+import PrivacyView from '../views/PrivacyView.vue'
+import CookieView from '../views/CookieView.vue'
 
 // Routes with SEO metadata
 const routes = [
@@ -77,6 +79,34 @@ const routes = [
       ogDescription: 'Analisi gratuita dei tuoi processi aziendali. Identifichiamo insieme le migliori opportunità di automazione per il tuo business.',
       ogImage: '/og-images/contatti.jpg',
       canonicalUrl: 'https://www.codecraft.it/contatti'
+    }
+  },
+  {
+    path: '/privacy',
+    name: 'Privacy',
+    component: PrivacyView,
+    meta: {
+      title: 'Privacy Policy | CodeCraft Studio',
+      description: 'Informativa sulla privacy di CodeCraft Studio. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali in conformità con il GDPR.',
+      keywords: 'privacy policy, GDPR, protezione dati, privacy CodeCraft Studio',
+      ogTitle: 'Privacy Policy - CodeCraft Studio',
+      ogDescription: 'La nostra informativa sulla privacy e protezione dei dati personali secondo il GDPR.',
+      ogImage: '/og-images/home.jpg',
+      canonicalUrl: 'https://www.codecraft.it/privacy'
+    }
+  },
+  {
+    path: '/cookie',
+    name: 'Cookie',
+    component: CookieView,
+    meta: {
+      title: 'Cookie Policy | CodeCraft Studio',
+      description: 'Informativa sui cookie di CodeCraft Studio. Scopri quali cookie utilizziamo, a cosa servono e come gestirli.',
+      keywords: 'cookie policy, gestione cookie, cookie analytics, CodeCraft Studio',
+      ogTitle: 'Cookie Policy - CodeCraft Studio',
+      ogDescription: 'Informazioni dettagliate sui cookie che utilizziamo e su come gestirli.',
+      ogImage: '/og-images/home.jpg',
+      canonicalUrl: 'https://www.codecraft.it/cookie'
     }
   }
 ]

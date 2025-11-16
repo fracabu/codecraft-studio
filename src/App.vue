@@ -11,12 +11,16 @@
 
     <!-- Footer Component -->
     <AppFooter />
+
+    <!-- Cookie Banner -->
+    <CookieBanner />
   </div>
 </template>
 
 <script setup>
 import AppHeader from './components/layout/AppHeader.vue'
 import AppFooter from './components/layout/AppFooter.vue'
+import CookieBanner from './components/common/CookieBanner.vue'
 </script>
 
 <style>
