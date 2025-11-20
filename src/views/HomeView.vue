@@ -1070,7 +1070,7 @@ import BaseButton from '@/components/common/BaseButton.vue'
   .scrolling-text {
     font-size: 15vh;
     padding: 1.5vh 0;
-    animation: none; /* Fermo su mobile */
+    animation: scroll-left 120s linear infinite; /* Scrolling medio su mobile */
     background: none !important;
     color: #a855f7 !important; /* Solid purple text */
     -webkit-text-fill-color: #a855f7 !important;
