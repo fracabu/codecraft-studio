@@ -1042,8 +1042,9 @@ import BaseButton from '@/components/common/BaseButton.vue'
   }
 
   .scrolling-text {
-    font-size: 15vh; /* Più grande anche su mobile */
+    font-size: 15vh;
     padding: 1.5vh 0;
+    animation: scroll-left 200s linear infinite; /* Molto più lento su mobile */
   }
 
   .scrolling-text span {
@@ -1054,96 +1055,14 @@ import BaseButton from '@/components/common/BaseButton.vue'
     padding-left: 2rem;
   }
 
+  /* Hide stars on mobile for performance */
+  .stars-container {
+    display: none;
+  }
+
+  /* Hide orbital system on mobile for performance */
   .orbital-system {
-    width: 400px;
-    height: 400px;
-  }
-
-  .main-circle {
-    width: 280px;
-    height: 280px;
-    margin: -140px 0 0 -140px;
-  }
-
-  .inner-circle {
-    width: 140px;
-    height: 140px;
-    margin: -70px 0 0 -70px;
-  }
-
-  .orbit-path-1 {
-    width: 280px;
-    height: 280px;
-    margin: -140px 0 0 -140px;
-  }
-
-  .orbit-path-2 {
-    width: 240px;
-    height: 240px;
-    margin: -120px 0 0 -120px;
-  }
-
-  .orbit-path-3 {
-    width: 300px;
-    height: 300px;
-    margin: -150px 0 0 -150px;
-  }
-
-  .orbit-path-4 {
-    width: 200px;
-    height: 200px;
-    margin: -100px 0 0 -100px;
-  }
-
-  .orbit-path-5 {
-    width: 260px;
-    height: 260px;
-    margin: -130px 0 0 -130px;
-  }
-
-  .particle-1 {
-    animation: orbit-1-mobile 6s linear infinite;
-  }
-
-  .particle-2 {
-    animation: orbit-2-mobile 8s linear infinite;
-  }
-
-  .particle-3 {
-    animation: orbit-3-mobile 10s linear infinite;
-  }
-
-  .particle-4 {
-    animation: orbit-4-mobile 7s linear infinite reverse;
-  }
-
-  .particle-5 {
-    animation: orbit-5-mobile 9s linear infinite reverse;
-  }
-
-  @keyframes orbit-1-mobile {
-    from { transform: rotate(0deg) translate3d(140px, 0, 0) rotate(0deg); }
-    to { transform: rotate(360deg) translate3d(140px, 0, 0) rotate(-360deg); }
-  }
-
-  @keyframes orbit-2-mobile {
-    from { transform: rotate(120deg) translate3d(120px, 0, 0) rotate(-120deg); }
-    to { transform: rotate(480deg) translate3d(120px, 0, 0) rotate(-480deg); }
-  }
-
-  @keyframes orbit-3-mobile {
-    from { transform: rotate(240deg) translate3d(150px, 0, 0) rotate(-240deg); }
-    to { transform: rotate(600deg) translate3d(150px, 0, 0) rotate(-600deg); }
-  }
-
-  @keyframes orbit-4-mobile {
-    from { transform: rotate(60deg) translate3d(100px, 0, 0) rotate(-60deg); }
-    to { transform: rotate(420deg) translate3d(100px, 0, 0) rotate(-420deg); }
-  }
-
-  @keyframes orbit-5-mobile {
-    from { transform: rotate(180deg) translate3d(130px, 0, 0) rotate(-180deg); }
-    to { transform: rotate(540deg) translate3d(130px, 0, 0) rotate(-540deg); }
+    display: none;
   }
 }
 
