@@ -259,7 +259,19 @@
 
       <!-- CTA Section - Pronto a Iniziare - Brand Gradient Style -->
       <section class="py-24 px-6 cta-gradient-section">
-        <div class="max-w-5xl mx-auto">
+        <!-- Animated Geometric Shapes -->
+        <div class="geometric-shapes">
+          <div class="shape shape-circle shape-1"></div>
+          <div class="shape shape-circle shape-2"></div>
+          <div class="shape shape-square shape-3"></div>
+          <div class="shape shape-square shape-4"></div>
+          <div class="shape shape-circle shape-5"></div>
+          <div class="shape shape-triangle shape-6"></div>
+          <div class="shape shape-circle shape-7"></div>
+          <div class="shape shape-square shape-8"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
           <div
             v-motion
             :initial="{ opacity: 0, y: 30 }"
@@ -1455,6 +1467,182 @@ import BaseButton from '@/components/common/BaseButton.vue'
   .cta-secondary-btn-light {
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* Animated Geometric Shapes */
+.geometric-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.15;
+  filter: blur(1px);
+}
+
+.shape-circle {
+  border-radius: 50%;
+  background: white;
+}
+
+.shape-square {
+  background: white;
+  border-radius: 8px;
+}
+
+.shape-triangle {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid white;
+  background: transparent;
+}
+
+/* Individual shape positions and animations */
+.shape-1 {
+  width: 80px;
+  height: 80px;
+  top: 10%;
+  left: 5%;
+  animation: float-1 20s ease-in-out infinite;
+}
+
+.shape-2 {
+  width: 60px;
+  height: 60px;
+  top: 70%;
+  left: 10%;
+  animation: float-2 25s ease-in-out infinite;
+}
+
+.shape-3 {
+  width: 50px;
+  height: 50px;
+  top: 15%;
+  right: 8%;
+  animation: float-rotate-1 18s ease-in-out infinite;
+}
+
+.shape-4 {
+  width: 70px;
+  height: 70px;
+  bottom: 15%;
+  right: 12%;
+  animation: float-rotate-2 22s ease-in-out infinite;
+}
+
+.shape-5 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 15%;
+  animation: float-3 30s ease-in-out infinite;
+}
+
+.shape-6 {
+  top: 25%;
+  right: 20%;
+  animation: float-rotate-3 28s ease-in-out infinite;
+}
+
+.shape-7 {
+  width: 40px;
+  height: 40px;
+  bottom: 30%;
+  left: 25%;
+  animation: float-1 24s ease-in-out infinite reverse;
+}
+
+.shape-8 {
+  width: 55px;
+  height: 55px;
+  top: 60%;
+  right: 25%;
+  animation: float-rotate-1 26s ease-in-out infinite reverse;
+}
+
+/* Floating animations */
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.05);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 30px) scale(1.15);
+  }
+  66% {
+    transform: translate(25px, -25px) scale(0.85);
+  }
+}
+
+@keyframes float-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15px, -40px) scale(1.2);
+  }
+}
+
+@keyframes float-rotate-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -25px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-15px, 15px) rotate(180deg);
+  }
+  75% {
+    transform: translate(25px, 20px) rotate(270deg);
+  }
+}
+
+@keyframes float-rotate-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(-30px, 20px) rotate(120deg) scale(1.1);
+  }
+  66% {
+    transform: translate(20px, -30px) rotate(240deg) scale(0.9);
+  }
+}
+
+@keyframes float-rotate-3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-25px, 35px) rotate(180deg);
+  }
+}
+
+/* Hide shapes on mobile for better performance */
+@media (max-width: 768px) {
+  .geometric-shapes {
+    display: none;
   }
 }
 </style>
