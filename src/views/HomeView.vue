@@ -659,6 +659,9 @@ import BaseButton from '@/components/common/BaseButton.vue'
     0 0 4px rgba(255, 255, 255, 0.8),
     0 0 8px rgba(168, 85, 247, 0.6);
   animation: star-pulse 3s ease-in-out infinite;
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes star-pulse {
@@ -710,6 +713,8 @@ import BaseButton from '@/components/common/BaseButton.vue'
     inset -10px -10px 60px rgba(168, 85, 247, 0.2);
 
   animation: rotate-pulse 8s linear infinite, pulse-scale 4s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 /* Inner Target Circle */
@@ -788,6 +793,8 @@ import BaseButton from '@/components/common/BaseButton.vue'
   box-shadow:
     0 0 20px rgba(236, 72, 153, 0.8),
     0 0 40px rgba(168, 85, 247, 0.6);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* Different orbit sizes and speeds */
@@ -823,49 +830,49 @@ import BaseButton from '@/components/common/BaseButton.vue'
   margin: -7px 0 0 -7px;
 }
 
-/* Orbit Animations */
+/* Orbit Animations - GPU Accelerated */
 @keyframes orbit-1 {
   from {
-    transform: rotate(0deg) translateX(200px) rotate(0deg);
+    transform: rotate(0deg) translate3d(200px, 0, 0) rotate(0deg);
   }
   to {
-    transform: rotate(360deg) translateX(200px) rotate(-360deg);
+    transform: rotate(360deg) translate3d(200px, 0, 0) rotate(-360deg);
   }
 }
 
 @keyframes orbit-2 {
   from {
-    transform: rotate(120deg) translateX(170px) rotate(-120deg);
+    transform: rotate(120deg) translate3d(170px, 0, 0) rotate(-120deg);
   }
   to {
-    transform: rotate(480deg) translateX(170px) rotate(-480deg);
+    transform: rotate(480deg) translate3d(170px, 0, 0) rotate(-480deg);
   }
 }
 
 @keyframes orbit-3 {
   from {
-    transform: rotate(240deg) translateX(220px) rotate(-240deg);
+    transform: rotate(240deg) translate3d(220px, 0, 0) rotate(-240deg);
   }
   to {
-    transform: rotate(600deg) translateX(220px) rotate(-600deg);
+    transform: rotate(600deg) translate3d(220px, 0, 0) rotate(-600deg);
   }
 }
 
 @keyframes orbit-4 {
   from {
-    transform: rotate(60deg) translateX(150px) rotate(-60deg);
+    transform: rotate(60deg) translate3d(150px, 0, 0) rotate(-60deg);
   }
   to {
-    transform: rotate(420deg) translateX(150px) rotate(-420deg);
+    transform: rotate(420deg) translate3d(150px, 0, 0) rotate(-420deg);
   }
 }
 
 @keyframes orbit-5 {
   from {
-    transform: rotate(180deg) translateX(190px) rotate(-180deg);
+    transform: rotate(180deg) translate3d(190px, 0, 0) rotate(-180deg);
   }
   to {
-    transform: rotate(540deg) translateX(190px) rotate(-540deg);
+    transform: rotate(540deg) translate3d(190px, 0, 0) rotate(-540deg);
   }
 }
 
@@ -1115,28 +1122,28 @@ import BaseButton from '@/components/common/BaseButton.vue'
   }
 
   @keyframes orbit-1-mobile {
-    from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
-    to { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+    from { transform: rotate(0deg) translate3d(140px, 0, 0) rotate(0deg); }
+    to { transform: rotate(360deg) translate3d(140px, 0, 0) rotate(-360deg); }
   }
 
   @keyframes orbit-2-mobile {
-    from { transform: rotate(120deg) translateX(120px) rotate(-120deg); }
-    to { transform: rotate(480deg) translateX(120px) rotate(-480deg); }
+    from { transform: rotate(120deg) translate3d(120px, 0, 0) rotate(-120deg); }
+    to { transform: rotate(480deg) translate3d(120px, 0, 0) rotate(-480deg); }
   }
 
   @keyframes orbit-3-mobile {
-    from { transform: rotate(240deg) translateX(150px) rotate(-240deg); }
-    to { transform: rotate(600deg) translateX(150px) rotate(-600deg); }
+    from { transform: rotate(240deg) translate3d(150px, 0, 0) rotate(-240deg); }
+    to { transform: rotate(600deg) translate3d(150px, 0, 0) rotate(-600deg); }
   }
 
   @keyframes orbit-4-mobile {
-    from { transform: rotate(60deg) translateX(100px) rotate(-60deg); }
-    to { transform: rotate(420deg) translateX(100px) rotate(-420deg); }
+    from { transform: rotate(60deg) translate3d(100px, 0, 0) rotate(-60deg); }
+    to { transform: rotate(420deg) translate3d(100px, 0, 0) rotate(-420deg); }
   }
 
   @keyframes orbit-5-mobile {
-    from { transform: rotate(180deg) translateX(130px) rotate(-180deg); }
-    to { transform: rotate(540deg) translateX(130px) rotate(-540deg); }
+    from { transform: rotate(180deg) translate3d(130px, 0, 0) rotate(-180deg); }
+    to { transform: rotate(540deg) translate3d(130px, 0, 0) rotate(-540deg); }
   }
 }
 
@@ -1482,6 +1489,9 @@ import BaseButton from '@/components/common/BaseButton.vue'
   position: absolute;
   opacity: 0.15;
   filter: blur(1px);
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 .shape-circle {
@@ -1566,76 +1576,76 @@ import BaseButton from '@/components/common/BaseButton.vue'
   animation: float-rotate-1 26s ease-in-out infinite reverse;
 }
 
-/* Floating animations */
+/* Floating animations - GPU Accelerated */
 @keyframes float-1 {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   25% {
-    transform: translate(30px, -30px) scale(1.1);
+    transform: translate3d(30px, -30px, 0) scale(1.1);
   }
   50% {
-    transform: translate(-20px, 20px) scale(0.9);
+    transform: translate3d(-20px, 20px, 0) scale(0.9);
   }
   75% {
-    transform: translate(20px, 30px) scale(1.05);
+    transform: translate3d(20px, 30px, 0) scale(1.05);
   }
 }
 
 @keyframes float-2 {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   33% {
-    transform: translate(-40px, 30px) scale(1.15);
+    transform: translate3d(-40px, 30px, 0) scale(1.15);
   }
   66% {
-    transform: translate(25px, -25px) scale(0.85);
+    transform: translate3d(25px, -25px, 0) scale(0.85);
   }
 }
 
 @keyframes float-3 {
   0%, 100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   50% {
-    transform: translate(15px, -40px) scale(1.2);
+    transform: translate3d(15px, -40px, 0) scale(1.2);
   }
 }
 
 @keyframes float-rotate-1 {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
   25% {
-    transform: translate(20px, -25px) rotate(90deg);
+    transform: translate3d(20px, -25px, 0) rotate(90deg);
   }
   50% {
-    transform: translate(-15px, 15px) rotate(180deg);
+    transform: translate3d(-15px, 15px, 0) rotate(180deg);
   }
   75% {
-    transform: translate(25px, 20px) rotate(270deg);
+    transform: translate3d(25px, 20px, 0) rotate(270deg);
   }
 }
 
 @keyframes float-rotate-2 {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
   33% {
-    transform: translate(-30px, 20px) rotate(120deg) scale(1.1);
+    transform: translate3d(-30px, 20px, 0) rotate(120deg) scale(1.1);
   }
   66% {
-    transform: translate(20px, -30px) rotate(240deg) scale(0.9);
+    transform: translate3d(20px, -30px, 0) rotate(240deg) scale(0.9);
   }
 }
 
 @keyframes float-rotate-3 {
   0%, 100% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg);
   }
   50% {
-    transform: translate(-25px, 35px) rotate(180deg);
+    transform: translate3d(-25px, 35px, 0) rotate(180deg);
   }
 }
 
