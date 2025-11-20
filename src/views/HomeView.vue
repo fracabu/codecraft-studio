@@ -110,193 +110,303 @@
         <div class="banner-border-bottom"></div>
       </section>
 
-      <!-- Welcome Text Section - Different Background -->
-      <section class="py-20 px-6 bg-gradient-to-b from-purple-900/20 to-dark-900">
-        <div class="max-w-4xl mx-auto text-center">
+      <!-- Welcome Text Section - Enhanced with Hero Style -->
+      <section class="welcome-section relative py-32 px-6 overflow-hidden">
+        <!-- Starfield Background -->
+        <div class="stars-container">
+          <div class="star" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+          <div class="star" style="top: 20%; left: 80%; animation-delay: 0.5s;"></div>
+          <div class="star" style="top: 30%; left: 25%; animation-delay: 1s;"></div>
+          <div class="star" style="top: 40%; left: 70%; animation-delay: 1.5s;"></div>
+          <div class="star" style="top: 50%; left: 10%; animation-delay: 2s;"></div>
+          <div class="star" style="top: 60%; left: 85%; animation-delay: 2.5s;"></div>
+          <div class="star" style="top: 70%; left: 40%; animation-delay: 3s;"></div>
+          <div class="star" style="top: 15%; left: 60%; animation-delay: 0.7s;"></div>
+          <div class="star" style="top: 80%; left: 20%; animation-delay: 1.2s;"></div>
+          <div class="star" style="top: 25%; left: 45%; animation-delay: 1.8s;"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+          <!-- Main Welcome Title -->
           <h2
             v-motion
-            :initial="{ opacity: 0, y: 30 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 200 } }"
-            class="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
+            :initial="{ opacity: 0, y: -30 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200 } }"
+            class="text-5xl md:text-7xl font-bold mb-8 pb-4"
           >
-            Benvenuto in CodeCraft Studio
+            <span class="welcome-gradient block">
+              Benvenuto in CodeCraft Studio
+            </span>
           </h2>
+
           <p
             v-motion
             :initial="{ opacity: 0, y: 30 }"
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 400 } }"
-            class="text-lg md:text-xl text-gray-300 leading-relaxed"
+            class="text-lg md:text-xl text-gray-300 leading-relaxed mb-16 max-w-4xl mx-auto"
           >
             Siamo dedicati ad aiutare le aziende a crescere con soluzioni innovative
             scalabili e a prova di futuro. Il nostro obiettivo è guidare il tuo successo
             con la nostra esperienza nello sviluppo web, mobile e AI.
           </p>
-        </div>
-      </section>
 
-      <!-- Value Proposition Cards -->
-      <section class="py-20 px-6 bg-white/[0.02]">
-        <div class="max-w-6xl mx-auto">
-          <div class="grid md:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <div
-              v-motion
-              :initial="{ opacity: 0, x: -50 }"
-              :visible="{ opacity: 1, x: 0, transition: { duration: 600, delay: 200 } }"
-              class="group p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
-            >
-              <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-3">
-                AI/ML Solutions
-              </h3>
-              <p class="text-gray-400 leading-relaxed mb-6">
-                Sistemi AI con TensorFlow, Gemini, OpenAI. SEO Analyzer, Trading ML Models, Multi-Agent Systems.
-              </p>
-              <div class="text-sm text-primary-400 font-medium">
-                8 progetti AI →
-              </div>
-            </div>
+          <!-- Decorative Line -->
+          <div
+            v-motion
+            :initial="{ opacity: 0, scaleX: 0 }"
+            :visible="{ opacity: 1, scaleX: 1, transition: { duration: 800, delay: 600 } }"
+            class="mission-divider mx-auto mb-12"
+          ></div>
 
-            <!-- Card 2 -->
-            <div
-              v-motion
-              :initial="{ opacity: 0, x: -50 }"
-              :visible="{ opacity: 1, x: 0, transition: { duration: 600, delay: 400 } }"
-              class="group p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
-            >
-              <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                </svg>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-3">
-                Data Analytics
-              </h3>
-              <p class="text-gray-400 leading-relaxed mb-6">
-                Dashboard Streamlit/React per Sales, Finance, Logistics. Visualizzazioni Plotly, ML forecasting.
-              </p>
-              <div class="text-sm text-primary-400 font-medium">
-                7 dashboard live →
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div
-              v-motion
-              :initial="{ opacity: 0, x: -50 }"
-              :visible="{ opacity: 1, x: 0, transition: { duration: 600, delay: 600 } }"
-              class="group p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/10"
-            >
-              <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                </svg>
-              </div>
-              <h3 class="text-lg sm:text-xl font-bold text-white mb-3">
-                Trading Systems
-              </h3>
-              <p class="text-gray-400 leading-relaxed mb-6">
-                Indicatori MT5 pubblicati su MQL5 Market, Expert Advisors automatici, Signal Boards con ML.
-              </p>
-              <div class="text-sm text-primary-400 font-medium">
-                80+ paesi →
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- What We Do -->
-      <section class="py-20 px-6">
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center mb-16">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
-              Cosa Facciamo
-            </h2>
-            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
-              Soluzioni digitali end-to-end per far crescere il tuo business
+          <!-- Our Mission Section -->
+          <div
+            v-motion
+            :initial="{ opacity: 0, y: 30 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: 800 } }"
+          >
+            <h3 class="text-4xl md:text-5xl font-bold mb-8 mission-title">
+              La Nostra Missione
+            </h3>
+            <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+              Rivoluzionare il panorama digitale fornendo soluzioni all'avanguardia che
+              permettono alle aziende di eccellere nei rispettivi settori. Crediamo nella
+              creatività, innovazione e collaborazione per creare esperienze digitali che
+              fanno davvero la differenza.
             </p>
           </div>
+        </div>
+      </section>
 
-          <!-- Services Grid -->
-          <div class="grid md:grid-cols-2 gap-6">
+      <!-- Core Values Cards - Light Style -->
+      <section class="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-6xl mx-auto">
+          <!-- Section Title -->
+          <h2
+            v-motion
+            :initial="{ opacity: 0, y: 30 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 100 } }"
+            class="text-4xl md:text-5xl font-bold text-center mb-16 core-values-title"
+          >
+            I Nostri Punti di Forza
+          </h2>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1 - Innovation -->
             <div
               v-motion
               :initial="{ opacity: 0, y: 50 }"
               :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 200 } }"
-              class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/30 transition-all"
+              class="core-value-card"
             >
-              <div class="flex items-start space-x-4">
-                <div class="w-10 h-10 bg-primary-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Web Applications</h3>
-                  <p class="text-gray-400 text-sm sm:text-base leading-relaxed">SPA Vue/React per hospitality, e-commerce, project management. Firebase integration, i18n.</p>
-                </div>
+              <div class="icon-wrapper mb-6">
+                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
               </div>
+              <h3 class="text-2xl font-bold mb-4 card-title">
+                Innovazione
+              </h3>
+              <p class="text-gray-600 leading-relaxed text-center">
+                Abbracciamo la creatività e spingiamo i confini della tecnologia per costruire
+                soluzioni uniche su misura per le esigenze del tuo business.
+              </p>
             </div>
 
+            <!-- Card 2 - Collaboration -->
             <div
               v-motion
               :initial="{ opacity: 0, y: 50 }"
-              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 350 } }"
-              class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/30 transition-all"
+              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 400 } }"
+              class="core-value-card"
             >
-              <div class="flex items-start space-x-4">
-                <div class="w-10 h-10 bg-primary-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white mb-2">AI/ML Solutions</h3>
-                  <p class="text-gray-400 text-sm sm:text-base leading-relaxed">Sistemi AI con TensorFlow, Gemini, Multi-Agent. SEO tools, Custom GPT, SCORM generator.</p>
-                </div>
+              <div class="icon-wrapper mb-6">
+                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 card-title">
+                Collaborazione
+              </h3>
+              <p class="text-gray-600 leading-relaxed text-center">
+                Crediamo nel lavoro di squadra e nella stretta collaborazione con i nostri clienti
+                per fornire il miglior risultato possibile per i loro progetti.
+              </p>
+            </div>
+
+            <!-- Card 3 - Excellence -->
+            <div
+              v-motion
+              :initial="{ opacity: 0, y: 50 }"
+              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 600 } }"
+              class="core-value-card"
+            >
+              <div class="icon-wrapper mb-6">
+                <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold mb-4 card-title">
+                Eccellenza
+              </h3>
+              <p class="text-gray-600 leading-relaxed text-center">
+                Siamo impegnati nell'eccellenza, assicurando che ogni progetto che intraprendiamo
+                soddisfi i più alti standard di qualità e innovazione.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Do - Modern Light Style -->
+      <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+          <!-- Header -->
+          <div class="mb-16">
+            <p class="text-sm text-gray-600 mb-4 tracking-wide uppercase">
+              Ci concentriamo ad aiutare il tuo business a crescere e andare avanti
+            </p>
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+              <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-black max-w-3xl">
+                <span class="what-we-do-highlight">Idee Uniche</span>
+                <br />
+                Per Il Tuo Business.
+              </h2>
+              <router-link
+                to="/servizi"
+                class="what-we-do-cta"
+              >
+                <span>Cosa Facciamo?</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </router-link>
+            </div>
+          </div>
+
+          <!-- Services Grid -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- Service 1: Web Applications -->
+            <div
+              v-motion
+              :initial="{ opacity: 0, y: 50 }"
+              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 200 } }"
+              class="service-card"
+            >
+              <div class="service-icon mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-black mb-3">
+                Applicazioni Web
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                Creiamo applicazioni web personalizzate su misura per le tue esigenze aziendali, utilizzando le ultime tecnologie per prestazioni, sicurezza e scalabilità ottimali.
+              </p>
+              <div class="service-arrow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
               </div>
             </div>
 
+            <!-- Service 2: Design & Development -->
+            <div
+              v-motion
+              :initial="{ opacity: 0, y: 50 }"
+              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 300 } }"
+              class="service-card"
+            >
+              <div class="service-icon mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-black mb-3">
+                Design & Sviluppo Siti Web
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                Il tuo sito web è il tuo volto online. Il nostro team progetta siti user-friendly che hanno un bell'aspetto e stimolano il coinvolgimento su tutti i dispositivi.
+              </p>
+              <div class="service-arrow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Service 3: AI/ML Solutions -->
+            <div
+              v-motion
+              :initial="{ opacity: 0, y: 50 }"
+              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 400 } }"
+              class="service-card"
+            >
+              <div class="service-icon mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-black mb-3">
+                Soluzioni AI/ML
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                Sistemi intelligenti con TensorFlow, Gemini e Multi-Agent. Strumenti SEO, GPT personalizzati e generatori SCORM per automatizzare e innovare il tuo business.
+              </p>
+              <div class="service-arrow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Service 4: Data Analytics -->
             <div
               v-motion
               :initial="{ opacity: 0, y: 50 }"
               :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 500 } }"
-              class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/30 transition-all"
+              class="service-card"
             >
-              <div class="flex items-start space-x-4">
-                <div class="w-10 h-10 bg-primary-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Data Dashboards</h3>
-                  <p class="text-gray-400 text-sm sm:text-base leading-relaxed">Dashboard analytics per Sales, Finance, Logistics, Retail. Plotly visualizations, ML forecasting.</p>
-                </div>
+              <div class="service-icon mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-black mb-3">
+                Dashboard Analytics
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                Dashboard interattive per Sales, Finance, Logistics e Retail. Visualizzazioni avanzate con Plotly e previsioni ML per decisioni data-driven.
+              </p>
+              <div class="service-arrow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
               </div>
             </div>
 
+            <!-- Service 5: Trading Systems -->
             <div
               v-motion
               :initial="{ opacity: 0, y: 50 }"
-              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 650 } }"
-              class="p-8 bg-white/5 border border-white/10 rounded-2xl hover:border-primary-500/30 transition-all"
+              :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 600 } }"
+              class="service-card"
             >
-              <div class="flex items-start space-x-4">
-                <div class="w-10 h-10 bg-primary-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="text-lg sm:text-xl font-bold text-white mb-2">Trading Systems</h3>
-                  <p class="text-gray-400 text-sm sm:text-base leading-relaxed">Indicatori MT5 su MQL5 Market, Expert Advisors automatici con TensorFlow, Signal Boards.</p>
-                </div>
+              <div class="service-icon mb-6">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-black mb-3">
+                Strategia Digitale & Consulting
+              </h3>
+              <p class="text-gray-600 text-sm leading-relaxed mb-8">
+                Naviga nel panorama digitale con i nostri servizi di strategia e consulenza, fornendo approfondimenti per ottimizzare la tua presenza e raggiungere gli obiettivi aziendali.
+              </p>
+              <div class="service-arrow">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
               </div>
             </div>
           </div>
@@ -1016,6 +1126,248 @@ import BaseButton from '@/components/common/BaseButton.vue'
   @keyframes orbit-5-mobile {
     from { transform: rotate(180deg) translateX(130px) rotate(-180deg); }
     to { transform: rotate(540deg) translateX(130px) rotate(-540deg); }
+  }
+}
+
+/* Welcome Section Styling */
+.welcome-section {
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e1b4b 25%,
+    #312e81 50%,
+    #1e1b4b 75%,
+    #0f172a 100%
+  );
+  position: relative;
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(168, 85, 247, 0.15) 0%,
+    rgba(236, 72, 153, 0.1) 30%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Welcome Title Gradient */
+.welcome-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(244, 63, 94, 1) 0%,
+    rgba(236, 72, 153, 0.9) 35%,
+    rgba(168, 85, 247, 0.8) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 80px rgba(236, 72, 153, 0.3);
+  animation: welcome-glow 3s ease-in-out infinite;
+}
+
+@keyframes welcome-glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+/* Mission Divider Line */
+.mission-divider {
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(168, 85, 247, 0.6) 20%,
+    rgba(236, 72, 153, 0.8) 50%,
+    rgba(168, 85, 247, 0.6) 80%,
+    transparent 100%
+  );
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+  border-radius: 2px;
+}
+
+/* Mission Title */
+.mission-title {
+  background: linear-gradient(
+    180deg,
+    rgba(236, 72, 153, 0.9) 0%,
+    rgba(168, 85, 247, 0.7) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Core Values Section */
+.core-values-title {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 1) 0%,
+    rgba(236, 72, 153, 0.9) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.core-value-card {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 1px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+.core-value-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 50px rgba(168, 85, 247, 0.15),
+    0 10px 20px rgba(236, 72, 153, 0.1);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a855f7;
+}
+
+.core-value-card:nth-child(2) .icon-wrapper {
+  color: #ec4899;
+}
+
+.core-value-card:nth-child(3) .icon-wrapper {
+  color: #8b5cf6;
+}
+
+.card-title {
+  background: linear-gradient(
+    135deg,
+    rgba(168, 85, 247, 1) 0%,
+    rgba(236, 72, 153, 0.9) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+}
+
+/* Responsive adjustments for core values */
+@media (max-width: 768px) {
+  .core-value-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .core-values-title {
+    font-size: 2rem;
+  }
+}
+
+/* What We Do Section - Modern Style */
+.what-we-do-highlight {
+  position: relative;
+  display: inline-block;
+}
+
+.what-we-do-highlight::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 40px;
+  background: black;
+  border-radius: 50px;
+  z-index: -1;
+}
+
+.what-we-do-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: black;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.what-we-do-cta:hover {
+  background: #1f1f1f;
+  transform: translateX(5px);
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  border-color: #000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.service-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: black;
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.service-card:hover .service-arrow {
+  transform: translateX(5px);
+}
+
+/* Responsive adjustments for services */
+@media (max-width: 1024px) {
+  .what-we-do-highlight::before {
+    width: 60px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .what-we-do-highlight::before {
+    display: none;
+  }
+
+  .service-card {
+    padding: 1.5rem;
   }
 }
 </style>
