@@ -102,7 +102,7 @@ Messaggio:
 ${messaggio}
 
 ---
-Messaggio inviato dal form di contatto su https://codecraft-studio.vercel.app
+Messaggio inviato dal form di contatto su https://www.codecraft.it
       `.trim(),
       html: `
         <!DOCTYPE html>
@@ -121,7 +121,7 @@ Messaggio inviato dal form di contatto su https://codecraft-studio.vercel.app
                   <tr>
                     <td style="background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%); padding: 40px 30px; text-align: center;">
                       <img
-                        src="https://codecraft-studio.vercel.app/logo-code2.png"
+                        src="https://www.codecraft.it/logo-code2.png"
                         alt="CodeCraft Studio"
                         style="height: 60px; width: auto; display: block; margin: 0 auto 20px;"
                       />
@@ -213,8 +213,8 @@ ${messaggio}
                         Messaggio ricevuto dal form di contatto su
                       </p>
                       <p style="margin: 0; text-align: center;">
-                        <a href="https://codecraft-studio.vercel.app" style="color: #f43f5e; text-decoration: none; font-weight: 600; font-size: 14px;">
-                          codecraft-studio.vercel.app
+                        <a href="https://www.codecraft.it" style="color: #f43f5e; text-decoration: none; font-weight: 600; font-size: 14px;">
+                          www.codecraft.it
                         </a>
                       </p>
                       <p style="margin: 15px 0 0; color: #94a3b8; font-size: 11px; text-align: center;">

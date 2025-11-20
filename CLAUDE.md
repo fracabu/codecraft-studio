@@ -39,8 +39,8 @@ This is a Vue 3 application using the Composition API with modern tooling for an
 - **cors**: CORS middleware for API endpoints
 
 ### Project Structure
-- `src/views/` - Page components (HomeView, ServicesView, ToolView, ProjectDetail, ContattiView)
-- `src/components/common/` - Reusable UI components (BaseButton, BaseCard, BaseModal, BaseSkeleton, BaseBreadcrumbs, LoadingSpinner)
+- `src/views/` - Page components (HomeView, ServicesView, ToolView, ProjectDetail, ContattiView, PrivacyView, CookieView)
+- `src/components/common/` - Reusable UI components (BaseButton, BaseCard, BaseModal, BaseSkeleton, BaseBreadcrumbs, LoadingSpinner, CookieBanner)
 - `src/components/layout/` - Layout components (AppHeader, AppFooter, HeroSection, ParticleBackground)
 - `src/stores/` - Pinia stores (auth.js, counter.js)
 - `src/router/` - Vue Router configuration with SEO guards
@@ -57,6 +57,7 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
 
 ### Global App Configuration (main.js)
 - **Analytics**: Google Analytics 4 initialized only in production with GDPR compliance (anonymize_ip, no ad personalization)
+- **Cookie Consent**: GDPR-compliant cookie banner (CookieBanner component) with localStorage persistence
 - **Error Handling**: Global error handlers for Vue errors, JavaScript errors, and unhandled promise rejections
 - **Performance Monitoring**: Core Web Vitals tracking (LCP, FID, CLS) using PerformanceObserver API
 - **PWA**: Service Worker registration in production with analytics tracking
@@ -65,6 +66,7 @@ The router in `src/router/index.js` includes comprehensive SEO metadata for all 
   - `$track`: Analytics tracking wrapper
   - `$env`: Access to import.meta.env
 - **Development Helpers**: Keyboard shortcuts (Ctrl/Cmd+K to clear console)
+- **Legal Pages**: Privacy Policy and Cookie Policy views with comprehensive GDPR information
 
 ### Styling & Theming
 - **Tailwind CSS** with custom color palette:
