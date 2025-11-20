@@ -1037,6 +1037,13 @@ import BaseButton from '@/components/common/BaseButton.vue'
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Disable all v-motion animations on mobile for performance */
+  [data-v-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .scrolling-banner {
     height: 40vh;
   }
@@ -1044,7 +1051,7 @@ import BaseButton from '@/components/common/BaseButton.vue'
   .scrolling-text {
     font-size: 15vh;
     padding: 1.5vh 0;
-    animation: scroll-left 200s linear infinite; /* Molto più lento su mobile */
+    animation: none; /* Fermo su mobile */
   }
 
   .scrolling-text span {
@@ -1063,6 +1070,12 @@ import BaseButton from '@/components/common/BaseButton.vue'
   /* Hide orbital system on mobile for performance */
   .orbital-system {
     display: none;
+  }
+
+  /* Simplify shadows on mobile */
+  .core-value-card,
+  .service-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
   }
 }
 
@@ -1387,6 +1400,8 @@ import BaseButton from '@/components/common/BaseButton.vue'
 @media (max-width: 768px) {
   .cta-modern-card {
     padding: 2.5rem 1.5rem;
+    backdrop-filter: none; /* Rimuovi blur su mobile */
+    background: rgba(255, 255, 255, 0.2); /* Sfondo più solido */
   }
 
   .cta-primary-btn-light,
