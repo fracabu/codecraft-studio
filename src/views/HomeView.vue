@@ -1037,6 +1037,11 @@ import BaseButton from '@/components/common/BaseButton.vue'
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Use system fonts on mobile for instant loading */
+  * {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  }
+
   /* Disable all v-motion animations on mobile for performance */
   [data-v-motion] {
     opacity: 1 !important;
@@ -1044,14 +1049,31 @@ import BaseButton from '@/components/common/BaseButton.vue'
     transition: none !important;
   }
 
+  /* Replace gradients with solid colors on mobile */
+  .hero-gradient,
+  .welcome-section,
+  .cta-gradient-section {
+    background: #1e1b4b !important; /* Solid dark purple */
+  }
+
+  .hero-gradient::before,
+  .welcome-section::before,
+  .cta-gradient-section::before {
+    display: none; /* Remove gradient overlays */
+  }
+
   .scrolling-banner {
     height: 40vh;
+    background: #0f172a !important; /* Solid dark */
   }
 
   .scrolling-text {
     font-size: 15vh;
     padding: 1.5vh 0;
     animation: none; /* Fermo su mobile */
+    background: none !important;
+    color: #a855f7 !important; /* Solid purple text */
+    -webkit-text-fill-color: #a855f7 !important;
   }
 
   .scrolling-text span {
@@ -1072,10 +1094,33 @@ import BaseButton from '@/components/common/BaseButton.vue'
     display: none;
   }
 
-  /* Simplify shadows on mobile */
+  /* Simplify all cards - solid backgrounds, minimal shadows */
   .core-value-card,
   .service-card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+  }
+
+  .cta-modern-card {
+    backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.95) !important; /* Almost solid white */
+    box-shadow: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  /* Simplify text gradients to solid colors */
+  .welcome-gradient,
+  .mission-title,
+  .core-values-title,
+  .card-title {
+    background: none !important;
+    color: #ec4899 !important; /* Solid pink */
+    -webkit-text-fill-color: #ec4899 !important;
+  }
+
+  .text-glow {
+    text-shadow: none !important;
+    color: white !important;
   }
 }
 
