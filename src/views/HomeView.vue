@@ -257,42 +257,41 @@
         </div>
       </section>
 
-      <!-- CTA Section - Pronto a Iniziare -->
-      <section class="py-20 px-6 bg-white/[0.02]">
-        <div class="max-w-4xl mx-auto">
+      <!-- CTA Section - Pronto a Iniziare - Modern Light Style -->
+      <section class="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+        <div class="max-w-5xl mx-auto">
           <div
             v-motion
-            :initial="{ opacity: 0, y: -50 }"
+            :initial="{ opacity: 0, y: 30 }"
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 200 } }"
-            class="relative p-12 bg-gradient-to-br from-primary-500/10 to-accent-500/10 border border-primary-500/20 rounded-3xl overflow-hidden"
+            class="cta-modern-card"
           >
-            <!-- Decorative gradient -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent"></div>
-
-            <div class="relative text-center">
-              <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            <div class="text-center">
+              <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-6">
                 Pronto a Iniziare?
               </h2>
-              <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+              <p class="text-lg sm:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
                 Consulenza gratuita di 30 minuti per capire come possiamo aiutare il tuo business a crescere.
               </p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <BaseButton
-                  tag="router-link"
+                <router-link
                   to="/contatti"
-                  variant="primary"
-                  size="lg"
+                  class="cta-primary-btn"
                 >
-                  Prenota Consulenza Gratuita
-                </BaseButton>
-                <BaseButton
-                  tag="router-link"
+                  <span>Prenota Consulenza Gratuita</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </router-link>
+                <router-link
                   to="/tool"
-                  variant="secondary"
-                  size="lg"
+                  class="cta-secondary-btn"
                 >
-                  Esplora i Progetti
-                </BaseButton>
+                  <span>Esplora i Progetti</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                  </svg>
+                </router-link>
               </div>
             </div>
           </div>
@@ -1368,6 +1367,73 @@ import BaseButton from '@/components/common/BaseButton.vue'
 
   .service-card {
     padding: 1.5rem;
+  }
+}
+
+/* CTA Section - Modern Style */
+.cta-modern-card {
+  background: white;
+  padding: 4rem 3rem;
+  border-radius: 2rem;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.08),
+    0 10px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cta-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: black;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.cta-primary-btn:hover {
+  background: #1f1f1f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  color: black;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: 2px solid black;
+}
+
+.cta-secondary-btn:hover {
+  background: black;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments for CTA */
+@media (max-width: 768px) {
+  .cta-modern-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-primary-btn,
+  .cta-secondary-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
