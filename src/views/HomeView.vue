@@ -257,6 +257,48 @@
         </div>
       </section>
 
+      <!-- CTA Section - Pronto a Iniziare -->
+      <section class="py-20 px-6 bg-white/[0.02]">
+        <div class="max-w-4xl mx-auto">
+          <div
+            v-motion
+            :initial="{ opacity: 0, y: -50 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 200 } }"
+            class="relative p-12 bg-gradient-to-br from-primary-500/10 to-accent-500/10 border border-primary-500/20 rounded-3xl overflow-hidden"
+          >
+            <!-- Decorative gradient -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent"></div>
+
+            <div class="relative text-center">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+                Pronto a Iniziare?
+              </h2>
+              <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Consulenza gratuita di 30 minuti per capire come possiamo aiutare il tuo business a crescere.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <BaseButton
+                  tag="router-link"
+                  to="/contatti"
+                  variant="primary"
+                  size="lg"
+                >
+                  Prenota Consulenza Gratuita
+                </BaseButton>
+                <BaseButton
+                  tag="router-link"
+                  to="/tool"
+                  variant="secondary"
+                  size="lg"
+                >
+                  Esplora i Progetti
+                </BaseButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- What We Do - Modern Light Style -->
       <section class="py-24 px-6 bg-white">
         <div class="max-w-7xl mx-auto">
@@ -548,48 +590,6 @@
                   <span class="mx-2">•</span>
                   <span>Webhooks</span>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Final CTA -->
-      <section class="py-20 px-6 bg-white/[0.02]">
-        <div class="max-w-4xl mx-auto">
-          <div
-            v-motion
-            :initial="{ opacity: 0, y: -50 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 200 } }"
-            class="relative p-12 bg-gradient-to-br from-primary-500/10 to-accent-500/10 border border-primary-500/20 rounded-3xl overflow-hidden"
-          >
-            <!-- Decorative gradient -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent"></div>
-
-            <div class="relative text-center">
-              <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                Pronto a Iniziare?
-              </h2>
-              <p class="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                Consulenza gratuita di 30 minuti per capire come possiamo aiutare il tuo business a crescere.
-              </p>
-              <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <BaseButton
-                  tag="router-link"
-                  to="/contatti"
-                  variant="primary"
-                  size="lg"
-                >
-                  Prenota Consulenza Gratuita
-                </BaseButton>
-                <BaseButton
-                  tag="router-link"
-                  to="/tool"
-                  variant="secondary"
-                  size="lg"
-                >
-                  Esplora i Progetti
-                </BaseButton>
               </div>
             </div>
           </div>
