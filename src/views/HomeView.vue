@@ -257,8 +257,8 @@
         </div>
       </section>
 
-      <!-- CTA Section - Pronto a Iniziare - Modern Light Style -->
-      <section class="py-24 px-6 bg-gradient-to-b from-white to-gray-50">
+      <!-- CTA Section - Pronto a Iniziare - Brand Gradient Style -->
+      <section class="py-24 px-6 cta-gradient-section">
         <div class="max-w-5xl mx-auto">
           <div
             v-motion
@@ -267,16 +267,16 @@
             class="cta-modern-card"
           >
             <div class="text-center">
-              <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-6">
+              <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
                 Pronto a Iniziare?
               </h2>
-              <p class="text-lg sm:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+              <p class="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
                 Consulenza gratuita di 30 minuti per capire come possiamo aiutare il tuo business a crescere.
               </p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <router-link
                   to="/contatti"
-                  class="cta-primary-btn"
+                  class="cta-primary-btn-light"
                 >
                   <span>Prenota Consulenza Gratuita</span>
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,7 +285,7 @@
                 </router-link>
                 <router-link
                   to="/tool"
-                  class="cta-secondary-btn"
+                  class="cta-secondary-btn-light"
                 >
                   <span>Esplora i Progetti</span>
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1370,39 +1370,39 @@ import BaseButton from '@/components/common/BaseButton.vue'
   }
 }
 
-/* CTA Section - Modern Style */
+/* CTA Section - Brand Gradient Style */
+.cta-gradient-section {
+  background: linear-gradient(
+    135deg,
+    #a855f7 0%,
+    #ec4899 50%,
+    #f43f5e 100%
+  );
+  position: relative;
+}
+
+.cta-gradient-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
 .cta-modern-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   padding: 4rem 3rem;
   border-radius: 2rem;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.08),
-    0 10px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
 }
 
-.cta-primary-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  background: black;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-}
-
-.cta-primary-btn:hover {
-  background: #1f1f1f;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.cta-secondary-btn {
+.cta-primary-btn-light {
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
@@ -1414,14 +1414,35 @@ import BaseButton from '@/components/common/BaseButton.vue'
   font-size: 1rem;
   transition: all 0.3s ease;
   white-space: nowrap;
-  border: 2px solid black;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
-.cta-secondary-btn:hover {
-  background: black;
-  color: white;
+.cta-primary-btn-light:hover {
+  background: #f9fafb;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-secondary-btn-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  border: 2px solid white;
+}
+
+.cta-secondary-btn-light:hover {
+  background: white;
+  color: #a855f7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive adjustments for CTA */
@@ -1430,8 +1451,8 @@ import BaseButton from '@/components/common/BaseButton.vue'
     padding: 2.5rem 1.5rem;
   }
 
-  .cta-primary-btn,
-  .cta-secondary-btn {
+  .cta-primary-btn-light,
+  .cta-secondary-btn-light {
     width: 100%;
     justify-content: center;
   }
