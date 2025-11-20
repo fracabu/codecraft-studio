@@ -35,8 +35,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Scrolling Text Banner */}
+      <section className="scrolling-banner overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+        <div className="banner-border-top"></div>
+
+        <div className="scrolling-text-container">
+          <div className="scrolling-text">
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+            <span>CODECRAFT_STUDIO</span>
+          </div>
+        </div>
+
+        <div className="banner-border-bottom"></div>
+      </section>
+
       {/* Welcome Section */}
       <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800">
+        {/* Starfield Background */}
+        <div className="stars-container">
+          <div className="star" style={{top: '10%', left: '15%', animationDelay: '0s'}}></div>
+          <div className="star" style={{top: '20%', left: '80%', animationDelay: '0.5s'}}></div>
+          <div className="star" style={{top: '30%', left: '25%', animationDelay: '1s'}}></div>
+          <div className="star" style={{top: '40%', left: '70%', animationDelay: '1.5s'}}></div>
+          <div className="star" style={{top: '50%', left: '10%', animationDelay: '2s'}}></div>
+          <div className="star" style={{top: '60%', left: '85%', animationDelay: '2.5s'}}></div>
+          <div className="star" style={{top: '70%', left: '40%', animationDelay: '3s'}}></div>
+          <div className="star" style={{top: '15%', left: '60%', animationDelay: '0.7s'}}></div>
+          <div className="star" style={{top: '80%', left: '20%', animationDelay: '1.2s'}}></div>
+          <div className="star" style={{top: '25%', left: '45%', animationDelay: '1.8s'}}></div>
+        </div>
+
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <h2 className="text-5xl md:text-7xl font-bold mb-8 pb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
             Benvenuto in CodeCraft Studio
