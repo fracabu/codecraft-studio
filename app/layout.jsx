@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="it" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
-        <div id="app" className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div id="app" className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
           <AppHeader />
 
           <main className="relative z-10">
