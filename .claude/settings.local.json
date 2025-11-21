@@ -9,7 +9,8 @@
       "Bash(npm install:*)",
       "Bash(jsconfig.json)",
       "Bash(ping:*)",
-      "Bash(nul)"
+      "Bash(nul)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
