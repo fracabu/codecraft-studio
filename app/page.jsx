@@ -247,7 +247,12 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section with Geometric Shapes */}
-      <section className="py-24 px-6 cta-gradient-section relative">
+      <section
+        ref={ctaSection.ref}
+        className={`py-24 px-6 cta-gradient-section relative transition-all duration-700 ${
+          ctaSection.isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
         {/* Animated Geometric Shapes */}
         <div className="geometric-shapes">
           <div className="shape shape-circle shape-1"></div>
@@ -296,7 +301,12 @@ export default function HomePage() {
       </section>
 
       {/* What We Do Section */}
-      <section className="py-24 px-6 bg-white">
+      <section
+        ref={whatWeDo.ref}
+        className={`py-24 px-6 bg-white transition-all duration-700 ${
+          whatWeDo.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <div className="mb-16">
@@ -428,7 +438,12 @@ export default function HomePage() {
       </section>
 
       {/* Stats Highlight */}
-      <section className="py-20 px-6 bg-white/[0.02]">
+      <section
+        ref={statsHighlight.ref}
+        className={`py-20 px-6 bg-white/[0.02] transition-all duration-700 ${
+          statsHighlight.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
@@ -448,7 +463,12 @@ export default function HomePage() {
       </section>
 
       {/* Featured Projects */}
-      <section className="py-20 px-6">
+      <section
+        ref={featuredProjects.ref}
+        className={`py-20 px-6 transition-all duration-700 ${
+          featuredProjects.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div>
