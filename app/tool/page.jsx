@@ -3,52 +3,7 @@
 import Link from 'next/link'
 import { Zap, ArrowRight } from 'lucide-react'
 import BaseButton from '@/components/common/BaseButton'
-
-// Sample projects data (simplified from projects.js)
-const projects = [
-  {
-    id: 1,
-    slug: 'checkinly-alloggify',
-    title: 'Checkinly (Alloggify)',
-    tagline: 'OCR-Powered Document Extraction per Alloggiati Web',
-    technologies: ['React 19', 'TypeScript', 'Google Gemini AI', 'Chrome Extension']
-  },
-  {
-    id: 2,
-    slug: 'il-sorpasso',
-    title: 'Il Sorpasso',
-    tagline: 'Landing Page & Contact App per Noleggio Auto',
-    technologies: ['Vue 3', 'Vite', 'Firebase Functions', 'Firestore']
-  },
-  {
-    id: 3,
-    slug: 'trading-ai',
-    title: 'Trading AI System',
-    tagline: 'ML-powered trading indicators and signal boards',
-    technologies: ['Python', 'TensorFlow', 'MQL5', 'Streamlit']
-  },
-  {
-    id: 4,
-    slug: 'data-analytics',
-    title: 'Data Analytics Dashboard',
-    tagline: 'Real-time analytics and forecasting platform',
-    technologies: ['React', 'Plotly', 'Flask API', 'PostgreSQL']
-  },
-  {
-    id: 5,
-    slug: 'seo-analyzer',
-    title: 'SEO Analyzer AI',
-    tagline: 'Intelligent SEO analysis and optimization tool',
-    technologies: ['OpenAI', 'Node.js', 'Express', 'React']
-  },
-  {
-    id: 6,
-    slug: 'npm-packages',
-    title: 'Open Source Packages',
-    tagline: 'Fastify plugins and i18n utilities',
-    technologies: ['Node.js', 'TypeScript', 'Fastify', 'npm']
-  }
-]
+import { projects } from '@/app/data/projects'
 
 export default function ToolPage() {
   return (
@@ -128,14 +83,16 @@ export default function ToolPage() {
             <p className="text-lg sm:text-xl text-gray-300 mb-6 max-w-xl mx-auto">
               Parliamo del tuo progetto e vediamo come possiamo aiutarti a realizzarlo.
             </p>
-            <BaseButton
-              to="/contatti"
-              variant="primary"
-              size="lg"
-              rightIcon={ArrowRight}
-            >
-              Richiedi Consulenza Gratuita
-            </BaseButton>
+            <div className="flex justify-center">
+              <BaseButton
+                to="/contatti"
+                variant="primary"
+                size="lg"
+                rightIcon={ArrowRight}
+              >
+                Richiedi Consulenza Gratuita
+              </BaseButton>
+            </div>
           </div>
         </div>
       </section>
