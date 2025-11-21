@@ -2,8 +2,21 @@
 
 import BaseButton from '@/components/common/BaseButton'
 import { ArrowRight } from 'lucide-react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 export default function HomePage() {
+  // Scroll animations
+  const welcomeTitle = useScrollAnimation()
+  const welcomeText = useScrollAnimation()
+  const missionDivider = useScrollAnimation()
+  const missionTitle = useScrollAnimation()
+  const missionText = useScrollAnimation()
+  const coreValues = useScrollAnimation()
+  const ctaSection = useScrollAnimation()
+  const whatWeDo = useScrollAnimation()
+  const statsHighlight = useScrollAnimation()
+  const featuredProjects = useScrollAnimation()
+
   return (
     <div className="w-full min-h-screen overflow-x-hidden pt-20">
       {/* Hero Section with Orbital System */}
@@ -116,25 +129,50 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-10">
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 pb-4">
+          <h2
+            ref={welcomeTitle.ref}
+            className={`text-5xl md:text-7xl font-bold mb-8 pb-4 transition-all duration-700 ${
+              welcomeTitle.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             <span className="welcome-gradient block">
               Benvenuto in CodeCraft Studio
             </span>
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-16 max-w-4xl mx-auto">
+          <p
+            ref={welcomeText.ref}
+            className={`text-lg md:text-xl text-gray-300 leading-relaxed mb-16 max-w-4xl mx-auto transition-all duration-700 delay-200 ${
+              welcomeText.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             Siamo dedicati ad aiutare le aziende a crescere con soluzioni innovative
             scalabili e a prova di futuro. Il nostro obiettivo è guidare il tuo successo
             con la nostra esperienza nello sviluppo web, mobile e AI.
           </p>
 
-          <div className="mission-divider mx-auto mb-12"></div>
+          <div
+            ref={missionDivider.ref}
+            className={`mission-divider mx-auto mb-12 transition-all duration-700 delay-300 ${
+              missionDivider.isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+            }`}
+          ></div>
 
           <div>
-            <h3 className="text-4xl md:text-5xl font-bold mb-8 mission-title">
+            <h3
+              ref={missionTitle.ref}
+              className={`text-4xl md:text-5xl font-bold mb-8 mission-title transition-all duration-700 delay-400 ${
+                missionTitle.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               La Nostra Missione
             </h3>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
+            <p
+              ref={missionText.ref}
+              className={`text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto transition-all duration-700 delay-500 ${
+                missionText.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               Rivoluzionare il panorama digitale fornendo soluzioni all'avanguardia che
               permettono alle aziende di eccellere nei rispettivi settori. Crediamo nella
               creatività, innovazione e collaborazione per creare esperienze digitali che
@@ -147,7 +185,12 @@ export default function HomePage() {
       {/* Core Values Cards */}
       <section className="py-24 px-6 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 core-values-title">
+          <h2
+            ref={coreValues.ref}
+            className={`text-4xl md:text-5xl font-bold text-center mb-16 core-values-title transition-all duration-700 ${
+              coreValues.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             I Nostri Punti di Forza
           </h2>
 
