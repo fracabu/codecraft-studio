@@ -4,8 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import BaseButton from '@/components/common/BaseButton'
-import { ArrowRight, Home, Briefcase, Zap, Mail } from 'lucide-react'
+import { Home, Briefcase, Zap, Mail } from 'lucide-react'
 
 export default function AppHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -37,40 +36,11 @@ export default function AppHeader() {
           />
         </Link>
 
-        {/* Navigation Desktop */}
-        <div className="hidden md:flex space-x-8">
-          {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`
-                text-gray-300 hover:text-rose-400 transition-all duration-300 cursor-pointer relative group font-medium
-                ${pathname === item.href ? 'text-rose-400' : ''}
-              `}
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-rose-400 transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-        </div>
-
-        {/* CTA Button Desktop */}
-        <div className="hidden md:block">
-          <BaseButton
-            to="/contatti"
-            variant="primary"
-            size="md"
-            rightIcon={ArrowRight}
-          >
-            Contattaci
-          </BaseButton>
-        </div>
-
-        {/* Mobile Menu Button */}
+        {/* Menu Button (visible on all screen sizes) */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className={`
-            md:hidden text-white hover:text-rose-400 transition-colors p-2 rounded-lg
+            text-white hover:text-rose-400 transition-colors p-2 rounded-lg
             hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-rose-400/50
             ${mobileMenuOpen ? 'text-rose-400' : ''}
           `}
@@ -100,10 +70,10 @@ export default function AppHeader() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Menu Dropdown */}
       <div
         className={`
-          md:hidden absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-sm
+          absolute top-full left-0 right-0 bg-slate-900/95 backdrop-blur-sm
           border-t border-white/10 mx-6 rounded-b-2xl shadow-2xl
           transition-all duration-300 ease-in-out origin-top
           ${mobileMenuOpen
@@ -132,19 +102,6 @@ export default function AppHeader() {
             )
           })}
 
-          {/* Mobile CTA Button */}
-          <div className="pt-4 border-t border-white/10 mt-4">
-            <BaseButton
-              to="/contatti"
-              variant="primary"
-              size="md"
-              className="w-full"
-              rightIcon={ArrowRight}
-              onClick={closeMobileMenu}
-            >
-              Contattaci
-            </BaseButton>
-          </div>
         </div>
       </div>
     </header>
