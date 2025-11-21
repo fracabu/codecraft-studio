@@ -2,144 +2,222 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## ⚠️ Migration Status
+
+**IMPORTANT:** This project is actively migrating from Vue 3 to Next.js 14 on the `nextjs-migration` branch. The codebase contains both Vue and Next.js code during this transition period.
+
+- **Current Branch:** `nextjs-migration`
+- **Target Framework:** Next.js 14 (React 19)
+- **Migration Status:** In progress (Phases 1-6 complete, homepage functional)
+- **See:** `MIGRATION_PLAN.md` for detailed migration roadmap
+
 ## Development Commands
 
+### Next.js (Current)
 - **Install dependencies**: `npm install`
-- **Development server (frontend only)**: `npm run dev` (runs on port 3000 with auto-reload)
-- **Backend server (local email API)**: `npm run server` (runs on port 3001)
-- **Full development (frontend + backend)**: `npm run dev:full` (runs both concurrently)
+- **Development server**: `npm run dev` (runs on port 3000)
 - **Production build**: `npm run build`
-- **Preview production build**: `npm run preview` (runs on port 4173)
-- **Run tests**: `npm run test:unit` (uses Vitest)
-- **Lint code**: `npm run lint` (ESLint with auto-fix)
+- **Start production**: `npm run start`
+- **Lint code**: `npm run lint` (Next.js ESLint)
 - **Format code**: `npm run format` (Prettier)
+
+### Legacy Commands (Vue - being phased out)
+- `npm run dev:full` - Runs Vue frontend + Express backend concurrently
+- `npm run server` - Express local development server (port 3001)
+- `npm run test:unit` - Vitest tests (Vue components)
 
 ## Architecture Overview
 
-This is a Vue 3 application using the Composition API with modern tooling for an AI business automation platform (CodeCraft Studio).
+CodeCraft Studio is an AI business automation platform transitioning from Vue 3 to Next.js 14 for improved mobile performance.
 
-### Core Stack
-- **Vue 3** with Composition API (`<script setup>` syntax)
-- **Vite 7** for build tooling and development server
-- **Vue Router** with comprehensive SEO metadata and analytics tracking
-- **Pinia** for state management
-- **Tailwind CSS** for styling with custom design system
-- **Vitest** for unit testing
-- **Express** for local development API server
-- **Vercel Serverless Functions** for production API endpoints
+### Core Stack (Next.js)
+- **Next.js 14** with App Router (React 19.2.0)
+- **React Server Components** and Client Components
+- **Tailwind CSS** with custom design system (rose/pink theme)
+- **TypeScript** support enabled
+- **Lucide React** for icons
+- **Nodemailer** for SMTP email (Aruba)
 
-### Key Libraries
-- **@vueuse/core**: Vue composition utilities
-- **@vueuse/head**: Head management for SEO
-- **@vueuse/motion**: Animation library with custom `motion-` elements
-- **lucide-vue-next** and **@heroicons/vue**: Icon libraries
-- **vite-plugin-pwa**: Progressive Web App capabilities
-- **nodemailer**: Email sending via SMTP (Aruba)
-- **express**: Local development server
-- **cors**: CORS middleware for API endpoints
+### Key Architectural Decisions
+1. **No animation libraries**: Pure CSS animations only (no Framer Motion, no @vueuse/motion)
+2. **Performance-first**: Optimized for old mobile devices (tested on Blackview 9900)
+3. **3D Pushable Buttons**: Custom CSS-only implementation with `.pushable` class
+4. **SSR/SSG**: Leveraging Next.js for instant page loads
+5. **API Routes**: Next.js route handlers replace Express + Vercel serverless functions
 
-### Project Structure
-- `src/views/` - Page components (HomeView, ServicesView, ToolView, ProjectDetail, ContattiView, PrivacyView, CookieView)
-- `src/components/common/` - Reusable UI components (BaseButton, BaseCard, BaseModal, BaseSkeleton, BaseBreadcrumbs, LoadingSpinner, CookieBanner)
-- `src/components/layout/` - Layout components (AppHeader, AppFooter, HeroSection, ParticleBackground)
-- `src/stores/` - Pinia stores (auth.js, counter.js)
-- `src/router/` - Vue Router configuration with SEO guards
-- `server/` - Express local development server for email API
-- `api/` - Vercel serverless functions for production
+### Project Structure (Next.js)
+```
+codecraft-studio/
+├── app/                          # Next.js App Router
+│   ├── layout.jsx               # Root layout with fonts, Header, Footer
+│   ├── page.jsx                 # Homepage (migrated from Vue)
+│   ├── contatti/page.jsx        # Contact form page
+│   └── api/
+│       └── send-email/route.js  # Email API endpoint (POST handler)
+├── components/
+│   ├── layout/
+│   │   ├── AppHeader.jsx       # Navigation header
+│   │   └── AppFooter.jsx       # Footer
+│   └── common/
+│       ├── BaseButton.jsx      # 3D pushable button component
+│       └── CookieBanner.jsx    # GDPR cookie consent
+├── styles/
+│   └── globals.css             # Global styles, Tailwind imports, animations
+├── public/                      # Static assets (images, logo, favicons)
+├── src/                         # ⚠️ Legacy Vue code (being migrated)
+├── server/                      # ⚠️ Legacy Express server (deprecated)
+└── api/                         # ⚠️ Legacy Vercel functions (deprecated)
+```
 
-### Router & SEO Implementation
-The router in `src/router/index.js` includes comprehensive SEO metadata for all routes:
-- Each route has meta tags: title, description, keywords, Open Graph tags, canonical URLs
-- Navigation guards (`beforeEach`) dynamically update meta tags and canonical links
-- Analytics tracking in `afterEach` guard (Google Analytics 4)
-- Smooth scroll behavior to top on route changes
-- Helper functions `updateOrCreateMeta()` and `updateOrCreateLink()` manage SEO tags
-
-### Global App Configuration (main.js)
-- **Analytics**: Google Analytics 4 initialized only in production with GDPR compliance (anonymize_ip, no ad personalization)
-- **Cookie Consent**: GDPR-compliant cookie banner (CookieBanner component) with localStorage persistence
-- **Error Handling**: Global error handlers for Vue errors, JavaScript errors, and unhandled promise rejections
-- **Performance Monitoring**: Core Web Vitals tracking (LCP, FID, CLS) using PerformanceObserver API
-- **PWA**: Service Worker registration in production with analytics tracking
-- **Global Providers**:
-  - `$toast`: Toast notification utility via CustomEvent
-  - `$track`: Analytics tracking wrapper
-  - `$env`: Access to import.meta.env
-- **Development Helpers**: Keyboard shortcuts (Ctrl/Cmd+K to clear console)
-- **Legal Pages**: Privacy Policy and Cookie Policy views with comprehensive GDPR information
-
-### Styling & Theming
-- **Tailwind CSS** with custom color palette:
-  - Primary colors (rose/pink theme): 50-900 scale, default #f43f5e
-  - Accent colors (pink): 50-900 scale, default #ec4899
-  - Dark colors: 900-500 scale for backgrounds (#0f172a deep background)
-- **Custom Fonts**: Inter (sans), Space Grotesk (display)
-- **Custom Animations**: fade-in-up, pulse-slow, bounce-slow, glow
-- **Plugins**: @tailwindcss/forms, @tailwindcss/typography
-- **Dark Theme**: Configured with gradient backgrounds and particle effects
-
-### Build Configuration (vite.config.js)
-- **Path Alias**: `@` points to `./src`
-- **Manual Chunk Splitting**:
-  - `vendor`: Vue core (vue, vue-router, pinia)
-  - `ui`: VueUse libraries
-  - `lucide`: Icon library
-- **Production Optimizations**:
-  - Terser minification with console/debugger removal
-  - CSS code splitting enabled
-  - Sourcemaps disabled for security
-- **PWA Configuration**:
-  - Auto-update service worker
-  - Runtime caching for Google Fonts
-  - Manifest: "CodeCraft Studio - AI Business Automations"
-- **Custom Elements**: `motion-` prefixed tags for @vueuse/motion
-
-### Email System
-- **Contact Form** in `ContattiView.vue` sends to backend API
-- **Local Development**: Express server (`server/index.js`) on port 3001
-- **Production**: Vercel serverless function (`api/send-email.js`)
-- **Email Sending**: Nodemailer with Aruba SMTP configuration
-- **Email Template**: HTML email with CodeCraft branding, logo, and modern design
-- **Configuration**: See `EMAIL_SETUP.md` for complete setup guide
-- **Environment Variables Required**:
-  - `SMTP_HOST` - Use `smtps.aruba.it` for SSL (port 465)
-  - `SMTP_PORT` - Port number (465 for SSL, 587 for TLS)
-  - `SMTP_SECURE` - Set to `true` for SSL
+### Email System (Migrated to Next.js)
+- **Contact Form**: Client component in `app/contatti/page.jsx`
+- **API Endpoint**: `app/api/send-email/route.js` (Next.js POST route handler)
+- **Email Service**: Nodemailer with Aruba SMTP (SSL port 465)
+- **Email Template**: Branded HTML template with CodeCraft logo and gradient styling
+- **Environment Variables**:
+  - `SMTP_HOST` - Aruba SMTP server (`smtps.aruba.it`)
+  - `SMTP_PORT` - Port number (`465` for SSL)
+  - `SMTP_SECURE` - SSL flag (`true`)
   - `SMTP_USER` - SMTP username/email
   - `SMTP_PASS` - SMTP password
-  - `SMTP_FROM_NAME` - Sender name for emails
-  - `CONTACT_EMAIL` - Email address where contact form submissions are sent (info@codecraft.it)
-- Form automatically switches between local (`http://localhost:3001/api/send-email`) and production (`/api/send-email`) endpoints
-- Both server implementations include comprehensive logging and error handling
+  - `SMTP_FROM_NAME` - Sender name (`CodeCraft Studio`)
+  - `CONTACT_EMAIL` - Recipient email (`info@codecraft.it`)
+  - `NEXT_PUBLIC_GA_MEASUREMENT_ID` - Google Analytics 4 (optional)
 
-### ESLint Configuration
-- Modern flat config format (eslint.config.js)
-- Vue 3 Composition API globals pre-configured (defineProps, defineEmits, etc.)
-- Browser and analytics globals defined (gtag, dataLayer)
-- Vue multi-word component names rule disabled
-- Allows console/debugger in development
+### Styling System
+**Tailwind CSS** with custom configuration:
+- **Primary Colors**: Rose/pink gradient theme (`#f43f5e`, `#ec4899`)
+- **Background**: Dark slate gradients (`#0f172a` to `#1e293b`)
+- **Fonts**:
+  - `Inter` - Primary sans-serif (weights 300-900)
+  - `Space Grotesk` - Display font (weights 300-700)
+  - Both loaded via `next/font/google` with `display: 'swap'`
+- **Custom Animations** (CSS only):
+  - `fadeInUp` - Fade in with upward motion
+  - `pulse-slow` - Slow pulsing effect
+  - `glow` - Glowing shadow animation
+  - `scroll` - Infinite scrolling banner
+  - Star animations with keyframes
+- **3D Pushable Buttons**: Custom CSS classes (`.pushable`, `.shadow`, `.edge`, `.front`)
 
-### Environment Variables
-Required variables (see `.env.example`):
-- `VITE_GA_MEASUREMENT_ID` - Google Analytics 4 measurement ID (optional)
-- `SMTP_HOST` - SMTP server host (use `smtps.aruba.it` for SSL)
-- `SMTP_PORT` - SMTP port (465 for SSL, 587 for TLS)
-- `SMTP_SECURE` - Use SSL (true/false)
-- `SMTP_USER` - SMTP username/email
-- `SMTP_PASS` - SMTP password
-- `SMTP_FROM_NAME` - Sender name for emails
-- `CONTACT_EMAIL` - Email address where contact form submissions are sent
+### Component Patterns
 
-**Important:**
-- Copy `.env.example` to `.env` for local development
-- Configure environment variables in Vercel dashboard for production
-- Never commit `.env` to version control
+#### BaseButton (React)
+Versatile button component supporting:
+- Multiple variants: `primary`, `secondary`, `success`, `warning`, `error`, `ghost`, `outline`
+- Sizes: `xs`, `sm`, `md`, `lg`, `xl`
+- Rendering modes: button, Link (Next.js), or anchor
+- 3D pushable style (default) or flat style (`pushable={false}`)
+- Left/right icons (Lucide components)
+- Loading state with spinner
+- Full TypeScript support
 
-### Deployment & Domain
+```jsx
+import BaseButton from '@/components/common/BaseButton'
+import { ArrowRight } from 'lucide-react'
+
+<BaseButton
+  to="/contatti"
+  variant="primary"
+  size="lg"
+  rightIcon={ArrowRight}
+>
+  Contact Us
+</BaseButton>
+```
+
+#### Client vs Server Components
+- **Use `'use client'`** for: state, events, browser APIs, animations
+- **Default to Server Components** for: static content, SEO metadata, data fetching
+
+### Next.js Configuration (`next.config.js`)
+- **Image Optimization**: WebP/AVIF formats, responsive device sizes
+- **Console Removal**: Production builds strip console logs
+- **Security Headers**: X-Frame-Options, X-DNS-Prefetch-Control
+- **Environment Variables**: Exposed via `env` config for client-side access
+
+### SEO & Metadata
+- **Static Metadata**: Defined in page components via `export const metadata`
+- **Open Graph & Twitter Cards**: Complete social sharing tags
+- **Canonical URLs**: Set via `metadataBase` in root layout
+- **Sitemap**: `public/sitemap.xml`
+- **Robots.txt**: `public/robots.txt`
+
+### Performance Optimizations
+**Critical for mobile devices:**
+1. **No heavy animation libraries** - Pure CSS keyframes only
+2. **next/image** - Automatic WebP/AVIF conversion, lazy loading
+3. **next/font** - Font optimization with display swap
+4. **Code splitting** - Automatic via Next.js App Router
+5. **Server Components** - Reduced client-side JavaScript
+6. **CSS-only animations** - Hardware-accelerated transforms
+
+**Target Lighthouse Scores:**
+- Mobile: 90+
+- Desktop: 95+
+- Accessibility: 95+
+- SEO: 100
+
+### Build Configuration
+**Tailwind** (`tailwind.config.js`):
+- Content paths: `./app/**/*.{js,jsx,tsx}`, `./components/**/*.{js,jsx,tsx}`
+- Extended theme with custom colors, fonts, animations
+- Plugins: `@tailwindcss/forms`, `@tailwindcss/typography`
+
+**Next.js**:
+- React Strict Mode enabled
+- Automatic production console removal
+- TypeScript support with `jsconfig.json`
+
+### Environment Setup
+1. **Copy environment template:**
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Configure SMTP variables** (see `.env.example`)
+
+3. **Vercel deployment**:
+   - Configure all environment variables in Vercel dashboard
+   - Automatic deployments from `main` branch
+   - Branch preview URLs for `nextjs-migration`
+
+### Deployment
 - **Production URL**: https://www.codecraft.it
-- **Hosting**: Vercel with automatic deployments from `main` branch
-- **Domain Provider**: Aruba (using Vercel nameservers)
+- **Hosting**: Vercel
+- **Domain**: Aruba (using Vercel nameservers)
 - **SSL**: Automatic via Vercel
-- **MX Records**: Configured for Aruba email service
+- **Framework Detection**: Automatic Next.js recognition
+- **Build Command**: `next build`
+- **Output Directory**: `.next`
 
-When making changes, ensure you maintain the existing code style and follow the Vue 3 Composition API patterns used throughout the codebase.
+### Migration Notes
+**When working on this codebase:**
+1. **Add new features to Next.js** (`app/`, `components/`), NOT Vue (`src/`)
+2. **Use React patterns**: hooks, client components, Server Components
+3. **Follow existing styling**: 3D pushable buttons, rose/pink gradients
+4. **Test mobile performance**: Verify animations are smooth on low-end devices
+5. **Maintain SEO**: Add proper metadata to all new pages
+6. **Keep email template consistent**: Use existing branded HTML template
+
+**Legacy Code (do not extend):**
+- `src/` - Vue 3 components and views
+- `server/` - Express local server
+- `api/` - Old Vercel serverless functions
+- `vite.config.js`, `vitest.config.js` - Vite build configs
+
+### Testing Workflow
+1. **Local development**: `npm run dev` → http://localhost:3000
+2. **Production build**: `npm run build` → test for errors
+3. **Production preview**: `npm run start` → verify build
+4. **Lighthouse audit**: Test performance, accessibility, SEO
+5. **Mobile testing**: Verify on low-end Android devices
+
+### Code Style
+- **Modern JavaScript**: ES6+, async/await, optional chaining
+- **React**: Functional components with hooks, destructuring props
+- **Tailwind**: Utility-first, responsive prefixes (`sm:`, `md:`, `lg:`)
+- **File Naming**: PascalCase for components, camelCase for utilities
+- **Client Components**: Always add `'use client'` directive at top when needed
+
+When making changes, prioritize mobile performance, maintain the existing visual style (3D buttons, gradients, animations), and ensure all new pages have proper SEO metadata.
