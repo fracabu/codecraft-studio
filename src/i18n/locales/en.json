@@ -1,0 +1,422 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact",
+    "contactUs": "Contact Us"
+  },
+  "home": {
+    "hero": {
+      "line1": "Transforming Concepts",
+      "line2": "into Unique",
+      "line3": "Digital Experiences",
+      "cta": "Get Started"
+    },
+    "welcome": {
+      "title": "Welcome to CodeCraft Studio",
+      "description": "We are dedicated to helping businesses grow with innovative, scalable, and future-proof solutions. Our goal is to guide your success with our expertise in web, mobile, and AI development."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To revolutionize the digital landscape by providing cutting-edge solutions that empower businesses to excel in their respective industries. We believe in creativity, innovation, and collaboration to create digital experiences that truly make a difference."
+    },
+    "values": {
+      "title": "Our Strengths",
+      "innovation": {
+        "title": "Innovation",
+        "description": "We embrace creativity and push the boundaries of technology to build unique solutions tailored to your business needs."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "We believe in teamwork and close collaboration with our clients to deliver the best possible outcome for their projects."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "We are committed to excellence, ensuring that every project we undertake meets the highest standards of quality and innovation."
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Free 30-minute consultation to understand how we can help your business grow.",
+      "primary": "Book Free Consultation",
+      "secondary": "Explore Projects"
+    },
+    "whatWeDo": {
+      "subtitle": "We focus on helping your business grow and move forward",
+      "titleHighlight": "Unique Ideas",
+      "titleRest": "For Your Business.",
+      "cta": "What We Do?"
+    },
+    "services": {
+      "webApps": {
+        "title": "Web Applications",
+        "description": "We create custom web applications tailored to your business needs, using the latest technologies for optimal performance, security, and scalability."
+      },
+      "webDesign": {
+        "title": "Web Design & Development",
+        "description": "Your website is your online face. Our team designs user-friendly sites that look great and drive engagement across all devices."
+      },
+      "aiMl": {
+        "title": "AI/ML Solutions",
+        "description": "Intelligent systems with TensorFlow, Gemini, and Multi-Agent. SEO tools, custom GPTs, and SCORM generators to automate and innovate your business."
+      },
+      "analytics": {
+        "title": "Analytics Dashboards",
+        "description": "Interactive dashboards for Sales, Finance, Logistics, and Retail. Advanced Plotly visualizations and ML forecasting for data-driven decisions."
+      },
+      "strategy": {
+        "title": "Digital Strategy & Consulting",
+        "description": "Navigate the digital landscape with our strategy and consulting services, providing insights to optimize your presence and achieve business goals."
+      }
+    },
+    "stats": {
+      "projects": "Projects Completed",
+      "delivery": "Weeks Delivery",
+      "hours": "Hours Saved/Month"
+    },
+    "featured": {
+      "title": "Featured Projects",
+      "subtitle": "Some of the tools and apps we've built",
+      "viewAll": "View all projects",
+      "project1": {
+        "title": "Guest Registration Tool",
+        "description": "Data entry automation for hospitality with WSKEY integration"
+      },
+      "project2": {
+        "title": "AI Assistant Chatbot",
+        "description": "Virtual assistant with GPT-4 integration for automated customer support"
+      },
+      "project3": {
+        "title": "n8n Workflow",
+        "description": "Complete business process automation with 40+ active agents"
+      }
+    }
+  },
+  "services": {
+    "title": "Our",
+    "titleHighlight": "Services",
+    "items": {
+      "aiMl": {
+        "title": "AI/ML Solutions",
+        "description": "AI systems with TensorFlow, Gemini, OpenAI. SEO Analyzer, Trading ML Models, Multi-Agent Systems, Custom GPT."
+      },
+      "analytics": {
+        "title": "Data Analytics Dashboards",
+        "description": "Streamlit/React dashboards for Sales, Finance, Logistics, Retail. Plotly visualizations, ML forecasting, API integration."
+      },
+      "api": {
+        "title": "API Development",
+        "description": "Flask/Express APIs for simulated data generation (Medical, Sales, Finance). Deployed on Render, supporting 100K+ records."
+      },
+      "trading": {
+        "title": "Trading Systems",
+        "description": "MT5 indicators (CustomRSI50 on MQL5 Market), automated Expert Advisors, Signal Boards with ML predictions."
+      },
+      "webApps": {
+        "title": "Web Applications",
+        "description": "Vue/React SPAs for hospitality, e-commerce, project management. Firebase integration, multilingual i18n, SEO optimized."
+      },
+      "npm": {
+        "title": "npm Packages",
+        "description": "Open-source plugins for Fastify, i18n utilities. Published on npm registry with complete documentation."
+      }
+    }
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Discover the projects we've built: SaaS, automations, AI integration, and much more.",
+    "filters": {
+      "all": "All",
+      "openSource": "Open Source",
+      "ai": "AI",
+      "analytics": "Analytics",
+      "hospitality": "Hospitality",
+      "api": "API",
+      "saas": "SaaS",
+      "webDev": "Web Dev",
+      "aiAutomation": "AI Automation",
+      "aiMl": "AI/ML",
+      "trading": "Trading"
+    },
+    "learnMore": "Learn more",
+    "cta": {
+      "title": "Have a similar idea?",
+      "description": "Let's talk about your project and see how we can help you build it.",
+      "button": "Request Free Consultation"
+    }
+  },
+  "projectDetail": {
+    "breadcrumb": {
+      "home": "Home",
+      "projects": "Projects"
+    },
+    "sidebar": {
+      "techStack": "Tech Stack",
+      "visitProject": "Visit Project →",
+      "similarProject": "Similar Project?"
+    },
+    "features": "Features",
+    "otherProjects": "Other Projects",
+    "notFound": {
+      "title": "Project not found",
+      "description": "The project you're looking for doesn't exist or has been removed.",
+      "button": "Back to Projects"
+    }
+  },
+  "contact": {
+    "title": "Let's Start",
+    "titleHighlight": "Together",
+    "description": "Free 30-minute consultation to analyze your processes.",
+    "form": {
+      "firstName": "First Name *",
+      "lastName": "Last Name *",
+      "email": "Email *",
+      "message": "Describe your project... *",
+      "sending": "Sending...",
+      "submit": "Send Message"
+    },
+    "success": "Message sent successfully! We'll get back to you soon.",
+    "error": "Error sending message. Please try again or contact us directly.",
+    "timeout": "Request timed out. Please check your connection and try again."
+  },
+  "footer": {
+    "description": "We develop AI-powered apps and tools to grow your business.",
+    "navigation": "Navigation",
+    "servicesTitle": "Services",
+    "contactTitle": "Contact",
+    "copyright": "© 2025 CodeCraft Studio. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy"
+  },
+  "cookieBanner": {
+    "title": "Cookie Usage",
+    "description": "We use essential cookies for site functionality and analytics cookies (Google Analytics) to improve your experience. Your data is anonymous and protected according to GDPR.",
+    "essentialOnly": "Essential Only",
+    "acceptAll": "Accept All"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is important to us",
+    "lastUpdate": "Last updated:",
+    "sections": {
+      "intro": {
+        "title": "1. Introduction",
+        "content": "CodeCraft Studio (\"we\", \"our\", \"the company\") is committed to protecting the privacy of visitors to the website www.codecraft.it. This Privacy Policy describes how we collect, use, and protect your personal information in accordance with the European Union's General Data Protection Regulation (GDPR)."
+      },
+      "controller": {
+        "title": "2. Data Controller"
+      },
+      "dataCollected": {
+        "title": "3. Personal Data Collected",
+        "provided": {
+          "title": "3.1 Data provided by the user",
+          "intro": "Through the contact form, we collect the following data:",
+          "items": ["First and last name", "Email address", "Phone number (optional)", "Request message"]
+        },
+        "automatic": {
+          "title": "3.2 Automatically collected data",
+          "intro": "When you visit our site, we automatically collect:",
+          "items": ["Browsing data (pages visited, visit duration) via Google Analytics", "IP address (anonymized)", "Browser and device type", "Operating system", "Referrer (site you came from)"]
+        }
+      },
+      "purposes": {
+        "title": "4. Processing Purposes",
+        "intro": "We use your personal data to:",
+        "items": [
+          { "title": "Respond to contact requests", "description": "process and respond to messages sent through the contact form" },
+          { "title": "Website analysis", "description": "improve user experience and optimize the site through Google Analytics" },
+          { "title": "Marketing communications", "description": "only with explicit consent, to inform you about services and news" },
+          { "title": "Legal obligations", "description": "comply with legal or regulatory obligations" }
+        ]
+      },
+      "legalBasis": {
+        "title": "5. Legal Basis for Processing",
+        "intro": "The processing of your data is based on:",
+        "items": [
+          { "title": "Consent", "description": "for sending marketing communications and using analytics cookies" },
+          { "title": "Contract execution", "description": "to respond to your service requests" },
+          { "title": "Legitimate interest", "description": "to analyze and improve the website" }
+        ]
+      },
+      "sharing": {
+        "title": "6. Data Sharing",
+        "intro": "Your data may be shared with the following third parties:",
+        "items": [
+          { "title": "Google Analytics", "description": "for web traffic analysis (anonymized data)" },
+          { "title": "Vercel", "description": "website hosting provider" },
+          { "title": "Aruba", "description": "email provider for sending and receiving messages" }
+        ],
+        "noSale": "We do not sell, rent, or trade your personal data with third parties for commercial purposes."
+      },
+      "retention": {
+        "title": "7. Data Retention",
+        "intro": "We retain your personal data for the time necessary to fulfill the purposes for which it was collected:",
+        "items": [
+          { "title": "Contact requests", "description": "up to 2 years from receipt" },
+          { "title": "Analytics data", "description": "26 months (Google Analytics setting)" },
+          { "title": "Marketing consents", "description": "until consent is revoked" }
+        ]
+      },
+      "rights": {
+        "title": "8. Your Rights",
+        "intro": "In accordance with GDPR, you have the right to:",
+        "items": [
+          { "title": "Access", "description": "obtain a copy of your personal data" },
+          { "title": "Rectification", "description": "correct inaccurate or incomplete data" },
+          { "title": "Erasure", "description": "request deletion of your data (right to be forgotten)" },
+          { "title": "Restriction", "description": "limit the processing of your data" },
+          { "title": "Portability", "description": "receive your data in a structured format" },
+          { "title": "Objection", "description": "object to the processing of your data" },
+          { "title": "Withdraw consent", "description": "revoke consent at any time" }
+        ],
+        "exerciseRights": "To exercise your rights, contact us at:"
+      },
+      "security": {
+        "title": "9. Data Security",
+        "intro": "We adopt appropriate technical and organizational measures to protect your personal data from unauthorized access, loss, destruction, or alteration. This includes:",
+        "items": ["SSL/TLS encryption for data transmission", "Secure servers with limited access", "Regular data backups", "Continuous threat monitoring"]
+      },
+      "cookies": {
+        "title": "10. Cookies",
+        "content": "Our site uses cookies to improve user experience. For more information, see our"
+      },
+      "changes": {
+        "title": "11. Changes to Privacy Policy",
+        "content": "We reserve the right to modify this Privacy Policy at any time. Changes will be posted on this page with the update date. We encourage you to check this page regularly to stay informed."
+      },
+      "contact": {
+        "title": "12. Contact",
+        "intro": "For questions or requests regarding this Privacy Policy, you can contact us at:",
+        "email": "Email:",
+        "contactForm": "Contact form:"
+      }
+    }
+  },
+  "cookie": {
+    "title": "Cookie Policy",
+    "subtitle": "How we use cookies on this site",
+    "lastUpdate": "Last updated:",
+    "sections": {
+      "whatAreCookies": {
+        "title": "1. What are Cookies",
+        "content": "Cookies are small text files that are stored on your device (computer, tablet, smartphone) when you visit a website. Cookies allow the site to remember your actions and preferences (such as login, language, font size, and other display settings) for a certain period of time, so you don't have to re-enter them every time you return to the site or browse from one page to another."
+      },
+      "howWeUse": {
+        "title": "2. How We Use Cookies",
+        "intro": "We use cookies to improve your experience on our website, to understand how it is used, and to provide personalized content. Below are the categories of cookies we use:",
+        "essential": {
+          "title": "Essential Cookies",
+          "description": "These cookies are strictly necessary for the website to function and cannot be disabled in our systems.",
+          "name": "Name:",
+          "purpose": "Purpose:",
+          "purposeValue": "Stores your cookie preferences",
+          "duration": "Duration:",
+          "durationValue": "1 year",
+          "type": "Type:",
+          "typeValue": "localStorage (not sent to server)"
+        },
+        "analytics": {
+          "title": "Analytics Cookies (Google Analytics)",
+          "description": "We use Google Analytics to analyze how visitors use our site. These cookies collect information anonymously.",
+          "ga": {
+            "name": "_ga",
+            "purpose": "Distinguishes unique users",
+            "duration": "2 years"
+          },
+          "gaId": {
+            "name": "_ga_*",
+            "purpose": "Maintains session state",
+            "duration": "2 years"
+          },
+          "privacyNote": "Privacy Note:",
+          "privacyNoteIntro": "We have configured Google Analytics with the following settings to protect your privacy:",
+          "privacySettings": ["IP anonymization active", "No ad personalization", "GDPR compliance"]
+        }
+      },
+      "manage": {
+        "title": "3. How to Manage Cookies",
+        "banner": {
+          "title": "3.1 Through our Banner",
+          "intro": "On your first visit to the site, a banner is displayed that allows you to:",
+          "options": ["Accept all cookies (essential + analytics)", "Reject analytics cookies (essential cookies only)"]
+        },
+        "browser": {
+          "title": "3.2 Through your Browser",
+          "intro": "You can control and/or delete cookies as you wish. You can delete all cookies already on your computer and you can set most browsers to prevent them from being installed. However, if you do, you may have to manually adjust some preferences every time you visit a site.",
+          "chrome": "Manage cookies on Chrome",
+          "firefox": "Manage cookies on Firefox",
+          "safari": "Manage cookies on Safari",
+          "edge": "Manage cookies on Edge"
+        }
+      },
+      "thirdParty": {
+        "title": "4. Third-Party Cookies",
+        "intro": "Some cookies are installed by third parties we use. Currently we use:",
+        "googleAnalytics": {
+          "title": "Google Analytics",
+          "description": "Google Analytics is a web analytics service provided by Google Inc. (\"Google\"). Google uses the data collected to track and examine the use of this site, compile reports on its activities, and share them with other Google services.",
+          "privacyPolicy": "Google Privacy Policy:"
+        }
+      },
+      "updates": {
+        "title": "5. Cookie Policy Updates",
+        "content": "We reserve the right to modify this Cookie Policy at any time. Any changes will be posted on this page with the update date. We encourage you to check this page regularly to stay informed about our use of cookies."
+      },
+      "contact": {
+        "title": "6. Contact",
+        "intro": "For questions or requests regarding this Cookie Policy, you can contact us at:",
+        "email": "Email:",
+        "privacyPolicy": "Privacy Policy:"
+      }
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "CodeCraft Studio - AI Business Automations",
+      "description": "We integrate artificial intelligence into business processes to reduce costs by 60% and increase productivity by 40%. Free 30min consultation.",
+      "keywords": "AI automations, artificial intelligence business, chatbot, automated processes, CodeCraft Studio",
+      "ogDescription": "Reduce operating costs by 60% with our custom AI automations. ROI guaranteed in 90 days."
+    },
+    "services": {
+      "title": "AI Services | Business Automations | CodeCraft Studio",
+      "description": "Discover our 4 main services: AI Automations, Process Optimization, Custom Tools, Strategic Consulting. Average ROI 4.5x.",
+      "keywords": "AI services, business automations, custom chatbot, process optimization, custom tools",
+      "ogDescription": "4 AI services to automate your processes: chatbot, document analysis, workflow optimization. 60% savings guaranteed."
+    },
+    "projects": {
+      "title": "Tool Portfolio | 15+ Developed Applications | CodeCraft",
+      "description": "Explore our 15+ developed tools: calculators, dashboards, NPM plugins, AI generators. Reduce 70% of operational time.",
+      "keywords": "custom tools, custom dashboard, business calculators, NPM plugins, AI content generator",
+      "ogDescription": "15+ custom tools to automate calculations and processes. From NPM plugin creation to analytics dashboards."
+    },
+    "projectDetail": {
+      "title": "Project | CodeCraft Studio",
+      "description": "Discover the details of projects developed by CodeCraft Studio: technologies used, results achieved, and implemented features.",
+      "keywords": "CodeCraft project, case study, web development portfolio, SaaS, automations",
+      "ogTitle": "Project - CodeCraft Studio",
+      "ogDescription": "Complete project details: technology stack, features, and measurable results."
+    },
+    "contact": {
+      "title": "Contact | Free 30min Consultation | CodeCraft Studio",
+      "description": "Request a free 30-minute consultation to analyze your processes and identify AI automation opportunities. Contact CodeCraft Studio.",
+      "keywords": "contact CodeCraft, free AI consultation, business process analysis, automation quote",
+      "ogTitle": "Contact - Free 30min Consultation",
+      "ogDescription": "Free analysis of your business processes. Together we identify the best automation opportunities for your business."
+    },
+    "privacy": {
+      "title": "Privacy Policy | CodeCraft Studio",
+      "description": "CodeCraft Studio privacy policy. Learn how we collect, use, and protect your personal data in compliance with GDPR.",
+      "keywords": "privacy policy, GDPR, data protection, CodeCraft Studio privacy",
+      "ogTitle": "Privacy Policy - CodeCraft Studio",
+      "ogDescription": "Our privacy and personal data protection policy according to GDPR."
+    },
+    "cookie": {
+      "title": "Cookie Policy | CodeCraft Studio",
+      "description": "CodeCraft Studio cookie policy. Learn which cookies we use, what they're for, and how to manage them.",
+      "keywords": "cookie policy, cookie management, analytics cookies, CodeCraft Studio",
+      "ogTitle": "Cookie Policy - CodeCraft Studio",
+      "ogDescription": "Detailed information about the cookies we use and how to manage them."
+    }
+  }
+}

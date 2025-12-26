@@ -11,32 +11,32 @@
             class="mb-4"
           />
           <p class="text-sm text-gray-400 leading-relaxed">
-            Sviluppiamo app e tool AI-powered per far crescere il tuo business.
+            {{ $t('footer.description') }}
           </p>
         </div>
 
         <!-- Links Veloci -->
         <div>
-          <h3 class="text-sm font-semibold text-white mb-4">Navigazione</h3>
+          <h3 class="text-sm font-semibold text-white mb-4">{{ $t('footer.navigation') }}</h3>
           <ul class="space-y-2">
             <li>
-              <router-link to="/" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Home</router-link>
+              <router-link :to="localizedHome" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">{{ $t('nav.home') }}</router-link>
             </li>
             <li>
-              <router-link to="/servizi" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Servizi</router-link>
+              <router-link :to="localizedServices" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">{{ $t('nav.services') }}</router-link>
             </li>
             <li>
-              <router-link to="/tool" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Progetti</router-link>
+              <router-link :to="localizedProjects" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">{{ $t('nav.projects') }}</router-link>
             </li>
             <li>
-              <router-link to="/contatti" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Contatti</router-link>
+              <router-link :to="localizedContact" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">{{ $t('nav.contact') }}</router-link>
             </li>
           </ul>
         </div>
 
         <!-- Servizi -->
         <div>
-          <h3 class="text-sm font-semibold text-white mb-4">Servizi</h3>
+          <h3 class="text-sm font-semibold text-white mb-4">{{ $t('footer.servicesTitle') }}</h3>
           <ul class="space-y-2">
             <li class="text-sm text-gray-400">AI/ML Solutions</li>
             <li class="text-sm text-gray-400">Data Analytics</li>
@@ -47,7 +47,7 @@
 
         <!-- Contatti -->
         <div>
-          <h3 class="text-sm font-semibold text-white mb-4">Contatti</h3>
+          <h3 class="text-sm font-semibold text-white mb-4">{{ $t('footer.contactTitle') }}</h3>
           <ul class="space-y-2">
             <li>
               <a href="mailto:info@codecraft.it" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">
@@ -59,9 +59,6 @@
                 +39 320 4933807
               </a>
             </li>
-            <!-- <li class="text-sm text-gray-400">
-              P.IVA: IT12345678900
-            </li> -->
           </ul>
 
           <!-- Social Links -->
@@ -77,12 +74,27 @@
 
       <!-- Bottom Bar -->
       <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <p>© 2025 CodeCraft Studio. Tutti i diritti riservati.</p>
+        <p>{{ $t('footer.copyright') }}</p>
         <div class="flex space-x-6 mt-4 md:mt-0">
-          <router-link to="/privacy" class="hover:text-primary-400 transition-colors">Privacy Policy</router-link>
-          <router-link to="/cookie" class="hover:text-primary-400 transition-colors">Cookie Policy</router-link>
+          <router-link :to="localizedPrivacy" class="hover:text-primary-400 transition-colors">{{ $t('footer.privacyPolicy') }}</router-link>
+          <router-link :to="localizedCookie" class="hover:text-primary-400 transition-colors">{{ $t('footer.cookiePolicy') }}</router-link>
         </div>
       </div>
     </div>
   </footer>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { getLocalizedRoute } from '@/router'
+
+const { locale } = useI18n()
+
+const localizedHome = computed(() => getLocalizedRoute('home', locale.value))
+const localizedServices = computed(() => getLocalizedRoute('services', locale.value))
+const localizedProjects = computed(() => getLocalizedRoute('projects', locale.value))
+const localizedContact = computed(() => getLocalizedRoute('contact', locale.value))
+const localizedPrivacy = computed(() => getLocalizedRoute('privacy', locale.value))
+const localizedCookie = computed(() => getLocalizedRoute('cookie', locale.value))
+</script>

@@ -55,9 +55,9 @@
             :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100 } }"
             class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight px-4 pb-4"
           >
-            <span class="text-gradient-1 block mb-2">Trasformiamo Concetti</span>
-            <span class="text-glow block my-4">in Esperienze</span>
-            <span class="text-gradient-2 block pb-2">Digitali Uniche</span>
+            <span class="text-gradient-1 block mb-2">{{ $t('home.hero.line1') }}</span>
+            <span class="text-glow block my-4">{{ $t('home.hero.line2') }}</span>
+            <span class="text-gradient-2 block pb-2">{{ $t('home.hero.line3') }}</span>
           </h1>
 
           <!-- CTA Button -->
@@ -69,12 +69,11 @@
           >
             <BaseButton
               tag="router-link"
-              to="/contatti"
+              :to="localizedContact"
               variant="primary"
-              size="lg"
-              class="max-w-xs"
+              size="xl"
             >
-              Inizia Ora
+              {{ $t('home.hero.cta') }}
             </BaseButton>
           </div>
         </div>
@@ -135,7 +134,7 @@
             class="text-5xl md:text-7xl font-bold mb-8 pb-4"
           >
             <span class="welcome-gradient block">
-              Benvenuto in CodeCraft Studio
+              {{ $t('home.welcome.title') }}
             </span>
           </h2>
 
@@ -145,9 +144,7 @@
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 400 } }"
             class="text-lg md:text-xl text-gray-300 leading-relaxed mb-16 max-w-4xl mx-auto"
           >
-            Siamo dedicati ad aiutare le aziende a crescere con soluzioni innovative
-            scalabili e a prova di futuro. Il nostro obiettivo è guidare il tuo successo
-            con la nostra esperienza nello sviluppo web, mobile e AI.
+            {{ $t('home.welcome.description') }}
           </p>
 
           <!-- Decorative Line -->
@@ -165,13 +162,10 @@
             :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: 800 } }"
           >
             <h3 class="text-4xl md:text-5xl font-bold mb-8 mission-title">
-              La Nostra Missione
+              {{ $t('home.mission.title') }}
             </h3>
             <p class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto">
-              Rivoluzionare il panorama digitale fornendo soluzioni all'avanguardia che
-              permettono alle aziende di eccellere nei rispettivi settori. Crediamo nella
-              creatività, innovazione e collaborazione per creare esperienze digitali che
-              fanno davvero la differenza.
+              {{ $t('home.mission.description') }}
             </p>
           </div>
         </div>
@@ -187,7 +181,7 @@
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 100 } }"
             class="text-4xl md:text-5xl font-bold text-center mb-16 core-values-title"
           >
-            I Nostri Punti di Forza
+            {{ $t('home.values.title') }}
           </h2>
 
           <div class="grid md:grid-cols-3 gap-8">
@@ -204,11 +198,10 @@
                 </svg>
               </div>
               <h3 class="text-2xl font-bold mb-4 card-title">
-                Innovazione
+                {{ $t('home.values.innovation.title') }}
               </h3>
               <p class="text-gray-600 leading-relaxed text-center">
-                Abbracciamo la creatività e spingiamo i confini della tecnologia per costruire
-                soluzioni uniche su misura per le esigenze del tuo business.
+                {{ $t('home.values.innovation.description') }}
               </p>
             </div>
 
@@ -225,11 +218,10 @@
                 </svg>
               </div>
               <h3 class="text-2xl font-bold mb-4 card-title">
-                Collaborazione
+                {{ $t('home.values.collaboration.title') }}
               </h3>
               <p class="text-gray-600 leading-relaxed text-center">
-                Crediamo nel lavoro di squadra e nella stretta collaborazione con i nostri clienti
-                per fornire il miglior risultato possibile per i loro progetti.
+                {{ $t('home.values.collaboration.description') }}
               </p>
             </div>
 
@@ -246,11 +238,10 @@
                 </svg>
               </div>
               <h3 class="text-2xl font-bold mb-4 card-title">
-                Eccellenza
+                {{ $t('home.values.excellence.title') }}
               </h3>
               <p class="text-gray-600 leading-relaxed text-center">
-                Siamo impegnati nell'eccellenza, assicurando che ogni progetto che intraprendiamo
-                soddisfi i più alti standard di qualità e innovazione.
+                {{ $t('home.values.excellence.description') }}
               </p>
             </div>
           </div>
@@ -280,26 +271,26 @@
           >
             <div class="text-center">
               <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
-                Pronto a Iniziare?
+                {{ $t('home.cta.title') }}
               </h2>
               <p class="text-lg sm:text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Consulenza gratuita di 30 minuti per capire come possiamo aiutare il tuo business a crescere.
+                {{ $t('home.cta.description') }}
               </p>
               <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <router-link
-                  to="/contatti"
+                  :to="localizedContact"
                   class="cta-primary-btn-light"
                 >
-                  <span>Prenota Consulenza Gratuita</span>
+                  <span>{{ $t('home.cta.primary') }}</span>
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
                 </router-link>
                 <router-link
-                  to="/tool"
+                  :to="localizedProjects"
                   class="cta-secondary-btn-light"
                 >
-                  <span>Esplora i Progetti</span>
+                  <span>{{ $t('home.cta.secondary') }}</span>
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                   </svg>
@@ -316,19 +307,19 @@
           <!-- Header -->
           <div class="mb-16">
             <p class="text-sm text-gray-600 mb-4 tracking-wide uppercase">
-              Ci concentriamo ad aiutare il tuo business a crescere e andare avanti
+              {{ $t('home.whatWeDo.subtitle') }}
             </p>
             <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold text-black max-w-3xl">
-                <span class="what-we-do-highlight">Idee Uniche</span>
+                <span class="what-we-do-highlight">{{ $t('home.whatWeDo.titleHighlight') }}</span>
                 <br />
-                Per Il Tuo Business.
+                {{ $t('home.whatWeDo.titleRest') }}
               </h2>
               <router-link
-                to="/servizi"
+                :to="localizedServices"
                 class="what-we-do-cta"
               >
-                <span>Cosa Facciamo?</span>
+                <span>{{ $t('home.whatWeDo.cta') }}</span>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
@@ -351,10 +342,10 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-black mb-3">
-                Applicazioni Web
+                {{ $t('home.services.webApps.title') }}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-8">
-                Creiamo applicazioni web personalizzate su misura per le tue esigenze aziendali, utilizzando le ultime tecnologie per prestazioni, sicurezza e scalabilità ottimali.
+                {{ $t('home.services.webApps.description') }}
               </p>
               <div class="service-arrow">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -376,10 +367,10 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-black mb-3">
-                Design & Sviluppo Siti Web
+                {{ $t('home.services.webDesign.title') }}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-8">
-                Il tuo sito web è il tuo volto online. Il nostro team progetta siti user-friendly che hanno un bell'aspetto e stimolano il coinvolgimento su tutti i dispositivi.
+                {{ $t('home.services.webDesign.description') }}
               </p>
               <div class="service-arrow">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -401,10 +392,10 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-black mb-3">
-                Soluzioni AI/ML
+                {{ $t('home.services.aiMl.title') }}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-8">
-                Sistemi intelligenti con TensorFlow, Gemini e Multi-Agent. Strumenti SEO, GPT personalizzati e generatori SCORM per automatizzare e innovare il tuo business.
+                {{ $t('home.services.aiMl.description') }}
               </p>
               <div class="service-arrow">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -426,10 +417,10 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-black mb-3">
-                Dashboard Analytics
+                {{ $t('home.services.analytics.title') }}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-8">
-                Dashboard interattive per Sales, Finance, Logistics e Retail. Visualizzazioni avanzate con Plotly e previsioni ML per decisioni data-driven.
+                {{ $t('home.services.analytics.description') }}
               </p>
               <div class="service-arrow">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -451,10 +442,10 @@
                 </svg>
               </div>
               <h3 class="text-xl font-bold text-black mb-3">
-                Strategia Digitale & Consulting
+                {{ $t('home.services.strategy.title') }}
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-8">
-                Naviga nel panorama digitale con i nostri servizi di strategia e consulenza, fornendo approfondimenti per ottimizzare la tua presenza e raggiungere gli obiettivi aziendali.
+                {{ $t('home.services.strategy.description') }}
               </p>
               <div class="service-arrow">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -472,15 +463,15 @@
           <div class="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div class="text-5xl font-bold text-white mb-2">25+</div>
-              <div class="text-gray-400">Progetti Completati</div>
+              <div class="text-gray-400">{{ $t('home.stats.projects') }}</div>
             </div>
             <div>
               <div class="text-5xl font-bold text-primary-400 mb-2">2-4</div>
-              <div class="text-gray-400">Settimane di Delivery</div>
+              <div class="text-gray-400">{{ $t('home.stats.delivery') }}</div>
             </div>
             <div>
               <div class="text-5xl font-bold text-white mb-2">500+</div>
-              <div class="text-gray-400">Ore Risparmiate/Mese</div>
+              <div class="text-gray-400">{{ $t('home.stats.hours') }}</div>
             </div>
           </div>
         </div>
@@ -492,17 +483,17 @@
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div>
               <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
-                Progetti in Evidenza
+                {{ $t('home.featured.title') }}
               </h2>
               <p class="text-lg sm:text-xl text-gray-400">
-                Alcuni dei tool e app che abbiamo realizzato
+                {{ $t('home.featured.subtitle') }}
               </p>
             </div>
             <router-link
-              to="/tool"
+              :to="localizedProjects"
               class="mt-6 md:mt-0 inline-flex items-center space-x-2 text-primary-400 hover:text-primary-300 font-medium"
             >
-              <span>Vedi tutti i progetti</span>
+              <span>{{ $t('home.featured.viewAll') }}</span>
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
@@ -527,10 +518,10 @@
                   <span class="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded">SaaS</span>
                 </div>
                 <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
-                  Tool Alloggiati Web
+                  {{ $t('home.featured.project1.title') }}
                 </h3>
                 <p class="text-sm sm:text-base text-gray-400 mb-4">
-                  Automazione inserimento dati per strutture ricettive con integrazione WSKEY
+                  {{ $t('home.featured.project1.description') }}
                 </p>
                 <div class="flex items-center text-xs text-gray-500">
                   <span>Vue.js</span>
@@ -558,10 +549,10 @@
                   <span class="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded">AI</span>
                 </div>
                 <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
-                  Chatbot Assistente
+                  {{ $t('home.featured.project2.title') }}
                 </h3>
                 <p class="text-sm sm:text-base text-gray-400 mb-4">
-                  Assistente virtuale con GPT-4 integrato per supporto clienti automatizzato
+                  {{ $t('home.featured.project2.description') }}
                 </p>
                 <div class="flex items-center text-xs text-gray-500">
                   <span>Node.js</span>
@@ -589,10 +580,10 @@
                   <span class="text-xs text-gray-400 bg-white/5 px-2 py-1 rounded">Automation</span>
                 </div>
                 <h3 class="text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
-                  Workflow n8n
+                  {{ $t('home.featured.project3.title') }}
                 </h3>
                 <p class="text-sm sm:text-base text-gray-400 mb-4">
-                  Automazione completa di processi business con 40+ agenti attivi
+                  {{ $t('home.featured.project3.description') }}
                 </p>
                 <div class="flex items-center text-xs text-gray-500">
                   <span>n8n</span>
@@ -611,7 +602,17 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/common/BaseButton.vue'
+import { getLocalizedRoute } from '@/router'
+
+const { locale } = useI18n()
+
+// Computed localized routes
+const localizedContact = computed(() => getLocalizedRoute('contact', locale.value))
+const localizedProjects = computed(() => getLocalizedRoute('projects', locale.value))
+const localizedServices = computed(() => getLocalizedRoute('services', locale.value))
 </script>
 
 <style scoped>

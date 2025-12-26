@@ -2,7 +2,7 @@
   <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-white/10">
     <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 py-4">
       <!-- Logo CodeCraft -->
-      <router-link to="/" class="flex items-center group">
+      <router-link :to="localizedHome" class="flex items-center group">
         <img
           src="/logo-code2.png"
           alt="CodeCraft Studio"
@@ -12,58 +12,61 @@
       </router-link>
 
       <!-- Navigation Desktop -->
-      <div class="hidden md:flex space-x-8">
+      <div class="hidden md:flex items-center space-x-8">
         <router-link
-          to="/"
+          :to="localizedHome"
           :class="[
             'text-gray-300 hover:text-primary-400 transition-all duration-300 cursor-pointer relative group font-medium',
-            $route.path === '/' ? 'text-primary-400' : ''
+            isActiveRoute('home') ? 'text-primary-400' : ''
           ]"
         >
-          Home
+          {{ $t('nav.home') }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
         </router-link>
         <router-link
-          to="/servizi"
+          :to="localizedServices"
           :class="[
             'text-gray-300 hover:text-primary-400 transition-all duration-300 cursor-pointer relative group font-medium',
-            $route.path === '/servizi' ? 'text-primary-400' : ''
+            isActiveRoute('services') ? 'text-primary-400' : ''
           ]"
         >
-          Servizi
+          {{ $t('nav.services') }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
         </router-link>
         <router-link
-          to="/tool"
+          :to="localizedProjects"
           :class="[
             'text-gray-300 hover:text-primary-400 transition-all duration-300 cursor-pointer relative group font-medium',
-            $route.path === '/tool' ? 'text-primary-400' : ''
+            isActiveRoute('projects') ? 'text-primary-400' : ''
           ]"
         >
-          Progetti
+          {{ $t('nav.projects') }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
         </router-link>
         <router-link
-          to="/contatti"
+          :to="localizedContact"
           :class="[
             'text-gray-300 hover:text-primary-400 transition-all duration-300 cursor-pointer relative group font-medium',
-            $route.path === '/contatti' ? 'text-primary-400' : ''
+            isActiveRoute('contact') ? 'text-primary-400' : ''
           ]"
         >
-          Contatti
+          {{ $t('nav.contact') }}
           <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
         </router-link>
+
+        <!-- Language Switcher Desktop -->
+        <LanguageSwitcher />
       </div>
 
       <!-- CTA Button Desktop -->
       <div class="hidden md:block">
         <BaseButton
           tag="router-link"
-          to="/contatti"
+          :to="localizedContact"
           variant="primary"
           size="md"
         >
-          <span>Contattaci</span>
+          <span>{{ $t('nav.contactUs') }}</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
           </svg>
@@ -103,69 +106,74 @@
       >
         <div class="flex flex-col space-y-2 p-6">
           <router-link
-            to="/"
+            :to="localizedHome"
             @click="closeMobileMenu"
             :class="[
               'text-gray-300 hover:text-primary-400 transition-colors py-3 px-4 rounded-lg hover:bg-white/10 flex items-center space-x-3',
-              $route.path === '/' ? 'text-primary-400 bg-primary-400/10' : ''
+              isActiveRoute('home') ? 'text-primary-400 bg-primary-400/10' : ''
             ]"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
             </svg>
-            <span>Home</span>
+            <span>{{ $t('nav.home') }}</span>
           </router-link>
           <router-link
-            to="/servizi"
+            :to="localizedServices"
             @click="closeMobileMenu"
             :class="[
               'text-gray-300 hover:text-primary-400 transition-colors py-3 px-4 rounded-lg hover:bg-white/10 flex items-center space-x-3',
-              $route.path === '/servizi' ? 'text-primary-400 bg-primary-400/10' : ''
+              isActiveRoute('services') ? 'text-primary-400 bg-primary-400/10' : ''
             ]"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
             </svg>
-            <span>Servizi</span>
+            <span>{{ $t('nav.services') }}</span>
           </router-link>
           <router-link
-            to="/tool"
+            :to="localizedProjects"
             @click="closeMobileMenu"
             :class="[
               'text-gray-300 hover:text-primary-400 transition-colors py-3 px-4 rounded-lg hover:bg-white/10 flex items-center space-x-3',
-              $route.path === '/tool' ? 'text-primary-400 bg-primary-400/10' : ''
+              isActiveRoute('projects') ? 'text-primary-400 bg-primary-400/10' : ''
             ]"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
-            <span>Progetti</span>
+            <span>{{ $t('nav.projects') }}</span>
           </router-link>
           <router-link
-            to="/contatti"
+            :to="localizedContact"
             @click="closeMobileMenu"
             :class="[
               'text-gray-300 hover:text-primary-400 transition-colors py-3 px-4 rounded-lg hover:bg-white/10 flex items-center space-x-3',
-              $route.path === '/contatti' ? 'text-primary-400 bg-primary-400/10' : ''
+              isActiveRoute('contact') ? 'text-primary-400 bg-primary-400/10' : ''
             ]"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
-            <span>Contatti</span>
+            <span>{{ $t('nav.contact') }}</span>
           </router-link>
 
+          <!-- Language Switcher Mobile -->
+          <div class="pt-4 border-t border-white/10 mt-2">
+            <LanguageSwitcher />
+          </div>
+
           <!-- Mobile CTA Button -->
-          <div class="pt-4 border-t border-white/10 mt-4">
+          <div class="pt-4 border-t border-white/10 mt-2">
             <BaseButton
               tag="router-link"
-              to="/contatti"
+              :to="localizedContact"
               variant="primary"
               size="md"
               full-width
               @click="closeMobileMenu"
             >
-              <span>Contattaci</span>
+              <span>{{ $t('nav.contactUs') }}</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
               </svg>
@@ -178,10 +186,37 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/common/BaseButton.vue'
+import LanguageSwitcher from '@/components/common/LanguageSwitcher.vue'
+import { getLocalizedRoute } from '@/router'
+
+const route = useRoute()
+const { locale } = useI18n()
 
 const isMobileMenuOpen = ref(false)
+
+// Computed localized routes
+const localizedHome = computed(() => getLocalizedRoute('home', locale.value))
+const localizedServices = computed(() => getLocalizedRoute('services', locale.value))
+const localizedProjects = computed(() => getLocalizedRoute('projects', locale.value))
+const localizedContact = computed(() => getLocalizedRoute('contact', locale.value))
+
+// Check if current route matches
+const isActiveRoute = (routeName) => {
+  const currentPath = route.path
+  const localizedPath = getLocalizedRoute(routeName, locale.value)
+
+  // Exact match for home
+  if (routeName === 'home') {
+    return currentPath === localizedPath || currentPath === `/${locale.value}`
+  }
+
+  // Starts with for other routes (to match sub-routes like /progetti/:slug)
+  return currentPath.startsWith(localizedPath)
+}
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value

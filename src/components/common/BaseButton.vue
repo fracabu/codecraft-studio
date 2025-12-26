@@ -1,7 +1,7 @@
 <template>
   <component
     :is="tag"
-    :class="[pushable ? 'pushable' : buttonClasses, pushable && `pushable-${variant}`]"
+    :class="[pushable ? 'pushable' : buttonClasses, pushable && `pushable-${variant}`, pushable && `pushable-${size}`]"
     :disabled="disabled || loading"
     :type="tag === 'button' ? type : undefined"
     :href="tag === 'a' ? href : undefined"
@@ -247,6 +247,18 @@ const handleClick = (event) => {
   transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
   white-space: nowrap;
   min-width: fit-content;
+}
+
+/* Pushable Size Variants */
+.pushable-xl .front {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+  border-radius: 14px;
+}
+
+.pushable-xl .shadow,
+.pushable-xl .edge {
+  border-radius: 14px;
 }
 
 .pushable .front > * {

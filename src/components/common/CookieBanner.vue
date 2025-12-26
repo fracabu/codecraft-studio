@@ -14,26 +14,24 @@
               </div>
               <div>
                 <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  Utilizzo dei Cookie
+                  {{ $t('cookieBanner.title') }}
                 </h3>
                 <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
-                  Utilizziamo cookie essenziali per il funzionamento del sito e cookie analitici
-                  (Google Analytics) per migliorare la tua esperienza. I tuoi dati sono anonimi e
-                  protetti secondo il GDPR.
+                  {{ $t('cookieBanner.description') }}
                 </p>
                 <div class="flex flex-wrap gap-2 text-xs">
                   <router-link
-                    to="/privacy"
+                    :to="localizedPrivacy"
                     class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline font-medium"
                   >
-                    Privacy Policy
+                    {{ $t('footer.privacyPolicy') }}
                   </router-link>
                   <span class="text-gray-400">•</span>
                   <router-link
-                    to="/cookie"
+                    :to="localizedCookie"
                     class="text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 underline font-medium"
                   >
-                    Cookie Policy
+                    {{ $t('footer.cookiePolicy') }}
                   </router-link>
                 </div>
               </div>
@@ -46,13 +44,13 @@
               @click="handleReject"
               class="px-6 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200 border border-gray-300 dark:border-gray-600"
             >
-              Solo Essenziali
+              {{ $t('cookieBanner.essentialOnly') }}
             </button>
             <button
               @click="handleAccept"
               class="px-6 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              Accetta Tutti
+              {{ $t('cookieBanner.acceptAll') }}
             </button>
           </div>
         </div>
@@ -62,8 +60,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { Cookie } from 'lucide-vue-next'
+import { getLocalizedRoute } from '@/router'
+
+const { locale } = useI18n()
+
+const localizedPrivacy = computed(() => getLocalizedRoute('privacy', locale.value))
+const localizedCookie = computed(() => getLocalizedRoute('cookie', locale.value))
 
 const showBanner = ref(false)
 const CONSENT_KEY = 'codecraft_cookie_consent'

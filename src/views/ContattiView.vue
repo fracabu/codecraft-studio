@@ -10,9 +10,9 @@
           :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 100 } }"
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold"
         >
-          <span class="text-white">Iniziamo </span>
+          <span class="text-white">{{ $t('contact.title') }} </span>
           <span class="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 bg-clip-text text-transparent">
-            Insieme
+            {{ $t('contact.titleHighlight') }}
           </span>
         </h1>
 
@@ -22,14 +22,14 @@
           :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 300 } }"
           class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
         >
-          Consulenza gratuita di 30 minuti per analizzare i tuoi processi.
+          {{ $t('contact.description') }}
         </p>
 
         <!-- Contact Form -->
         <form
           v-motion
           :initial="{ opacity: 0, y: 40 }"
-          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 500 } }" 
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 500 } }"
           @submit.prevent="submitForm"
           class="max-w-lg mx-auto space-y-4 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl"
         >
@@ -38,14 +38,14 @@
               v-model="form.nome"
               type="text"
               required
-              placeholder="Nome *"
+              :placeholder="$t('contact.form.firstName')"
               class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-300"
             />
             <input
               v-model="form.cognome"
               type="text"
               required
-              placeholder="Cognome *"
+              :placeholder="$t('contact.form.lastName')"
               class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-300"
             />
           </div>
@@ -54,7 +54,7 @@
             v-model="form.email"
             type="email"
             required
-            placeholder="Email *"
+            :placeholder="$t('contact.form.email')"
             class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition-all duration-300"
           />
 
@@ -62,7 +62,7 @@
             v-model="form.messaggio"
             rows="3"
             required
-            placeholder="Descrivi il tuo progetto... *"
+            :placeholder="$t('contact.form.message')"
             class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300 resize-none"
           ></textarea>
 
@@ -77,7 +77,7 @@
             <svg v-if="!isSubmitting" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
             </svg>
-            <span>{{ isSubmitting ? 'Invio...' : 'Invia Messaggio' }}</span>
+            <span>{{ isSubmitting ? $t('contact.form.sending') : $t('contact.form.submit') }}</span>
           </BaseButton>
 
           <div v-if="submitMessage" :class="['text-center text-sm', submitMessage.type === 'success' ? 'text-green-400' : 'text-red-400']">
@@ -94,7 +94,10 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
+import { useI18n } from 'vue-i18n'
 import BaseButton from '@/components/common/BaseButton.vue'
+
+const { t } = useI18n()
 
 // Form data
 const form = reactive({
@@ -152,13 +155,13 @@ const submitForm = async () => {
     console.log('Response data:', data)
 
     if (!response.ok || !data.success) {
-      throw new Error(data.message || data.error || 'Errore durante l\'invio')
+      throw new Error(data.message || data.error || t('contact.error'))
     }
 
     // Show success message
     submitMessage.value = {
       type: 'success',
-      text: 'Messaggio inviato con successo! Ti risponderemo presto.'
+      text: t('contact.success')
     }
 
     // Reset form after successful submission
@@ -172,10 +175,10 @@ const submitForm = async () => {
   } catch (error) {
     console.error('Error submitting form:', error)
 
-    let errorMessage = 'Errore durante l\'invio. Riprova o contattaci direttamente.'
+    let errorMessage = t('contact.error')
 
     if (error.name === 'AbortError') {
-      errorMessage = 'Richiesta scaduta. Controlla la connessione e riprova.'
+      errorMessage = t('contact.timeout')
     } else if (error.message) {
       errorMessage = error.message
     }

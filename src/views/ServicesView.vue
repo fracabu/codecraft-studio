@@ -11,9 +11,9 @@
           :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: 100 } }"
           class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-10 md:mb-16 text-center px-2"
         >
-          <span class="text-white block sm:inline">I Nostri </span>
+          <span class="text-white block sm:inline">{{ $t('services.title') }} </span>
           <span class="bg-gradient-to-r from-rose-400 via-pink-400 to-rose-500 bg-clip-text text-transparent block sm:inline">
-            Servizi
+            {{ $t('services.titleHighlight') }}
           </span>
         </h1>
 
@@ -29,7 +29,7 @@
           >
             <!-- Icon -->
             <div class="w-14 h-14 sm:w-16 sm:h-16 mb-3 sm:mb-4 bg-gradient-to-r from-primary-500 to-accent-500 rounded-xl relative shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300 group-hover:scale-110">
-              <component :is="getServiceIcon(service.title)" class="w-7 h-7 sm:w-8 sm:h-8 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+              <component :is="getServiceIcon(service.key)" class="w-7 h-7 sm:w-8 sm:h-8 text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
             </div>
 
             <!-- Title -->
@@ -50,7 +50,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import {
   CpuChipIcon,
   ChartBarIcon,
@@ -59,6 +60,8 @@ import {
   GlobeAltIcon,
   CubeIcon
 } from '@heroicons/vue/24/outline'
+
+const { t } = useI18n()
 
 // Icon mapping function
 const getServiceIcon = (title) => {
@@ -73,43 +76,43 @@ const getServiceIcon = (title) => {
   return iconMap[title] || CpuChipIcon
 }
 
-// Services preview
-const services = ref([
+// Services with i18n
+const services = computed(() => [
   {
     icon: '🤖',
-    title: 'AI/ML Solutions',
-    description: 'Sistemi AI con TensorFlow, Gemini, OpenAI. SEO Analyzer, Trading ML Models, Multi-Agent Systems, Custom GPT.',
-    benefit: '8 progetti AI'
+    title: t('services.items.aiMl.title'),
+    description: t('services.items.aiMl.description'),
+    key: 'AI/ML Solutions'
   },
   {
     icon: '📊',
-    title: 'Data Analytics Dashboards',
-    description: 'Dashboard Streamlit/React per Sales, Finance, Logistics, Retail. Visualizzazioni Plotly, ML forecasting, API integration.',
-    benefit: '7 dashboard live'
+    title: t('services.items.analytics.title'),
+    description: t('services.items.analytics.description'),
+    key: 'Data Analytics Dashboards'
   },
   {
     icon: '🔌',
-    title: 'API Development',
-    description: 'API Flask/Express per generazione dati simulati (Medical, Sales, Finance). Deploy su Render, supporto 100K+ records.',
-    benefit: '3 API pubbliche'
+    title: t('services.items.api.title'),
+    description: t('services.items.api.description'),
+    key: 'API Development'
   },
   {
     icon: '📈',
-    title: 'Trading Systems',
-    description: 'Indicatori MT5 (CustomRSI50 su MQL5 Market), Expert Advisors automatici, Signal Boards con ML predictions.',
-    benefit: '80+ paesi'
+    title: t('services.items.trading.title'),
+    description: t('services.items.trading.description'),
+    key: 'Trading Systems'
   },
   {
     icon: '🌐',
-    title: 'Web Applications',
-    description: 'SPA Vue/React per hospitality, e-commerce, project management. Firebase integration, i18n multilingua, SEO optimized.',
-    benefit: '5 app live'
+    title: t('services.items.webApps.title'),
+    description: t('services.items.webApps.description'),
+    key: 'Web Applications'
   },
   {
     icon: '📦',
-    title: 'npm Packages',
-    description: 'Plugin open-source per Fastify, utilities i18n. Pubblicati su npm registry con documentazione completa.',
-    benefit: '137+ downloads'
+    title: t('services.items.npm.title'),
+    description: t('services.items.npm.description'),
+    key: 'npm Packages'
   }
 ])
 </script>
